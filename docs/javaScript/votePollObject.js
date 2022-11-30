@@ -17,7 +17,6 @@ class votePoll{
             else
                 this.voteMap.set(vote.getKey(),vote);
         }
-   
     }
 
     getPluralityResult()
