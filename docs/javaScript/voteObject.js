@@ -10,7 +10,7 @@ class Vote{
     {
         let keyVal = ""
         for (let i = 0; i < this.voteRanking.length; ++i)
-            keyVal += String(this.voteRanking[i][0])
+            keyVal += String(this.voteRanking[i])
         return keyVal
     }
 
