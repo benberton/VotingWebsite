@@ -123,20 +123,14 @@ class votePoll{
                 let topVoteInd = 0
                 while (!currentCand.includes(values[j].voteRanking[topVoteInd]))
                     topVoteInd++
-                console.log("Highest Candidate - ", values[j].voteRanking[topVoteInd], "Index: " + topVoteInd)
-                voteCountArray[currentCand.indexOf(values[j].voteRanking[topVoteInd])][0] += values[j].voteCount
-                
+                voteCountArray[currentCand.indexOf(values[j].voteRanking[topVoteInd])][0] += values[j].voteCount           
             }  
             eliminatedCand.unshift(this.eliminateMinVote(voteCountArray,currentCand))
-            voteCountArray = this.generateEmptyVoteTally(currentCand)
-  
-            console.log("Current Candidates",currentCand)
-            console.log("Eliminated:",eliminatedCand)
-            console.log("Current count:",voteCountArray)
-  
+            voteCountArray = this.generateEmptyVoteTally(currentCand) 
+            // console.log("Round " + (i + 1) + ": " + eliminatedCand[0] + " eliminated")  
         }
 
-        return voteCountArray
+        return eliminatedCand
     }
 
     eliminateMinVote(voteCountArray,currentCand)
