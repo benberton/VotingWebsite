@@ -1,5 +1,25 @@
-#voteConatainer{
-    background-color: red;
-    padding: 10cm;
-    color: red;
+#voteContainer {
+  border: 1px solid black;
+  font-size: 70;
+  text-align: center;
+  margin: auto;
+  height: auto;
+  width: 800px;
+  min-width: 500px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#submitVoteBtn {
+  height: 50px;
+  width: 300px;
+  transition: all 200ms;
+}
+
+#submitVoteBtn:hover {
+  cursor: pointer;
+  scale: 1.05;
+}
+
+body{
+
 }
