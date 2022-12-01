@@ -100,41 +100,67 @@ class votePoll{
 
     pluralityEliminationResult()
     {
-        //creating 2d array to hold both the candidate name and their total "points"
-        let voteCountArray = this.getEmptyVoteTally()
-
         //getting votes
         const values = Array.from(this.voteMap.values())
         
-        //holds eliminated candidates
-        let eliminated = []
+        //holds the non-elimated/current Candidates
+        let currentCand = new Array(this.candidates.length)
+        for (let i = 0 ; i < this.candidates.length; ++i)
+            currentCand[i] = String(this.candidates[i])
 
+        //creating 2d array to hold both the candidate name and their total "points"
+        let voteCountArray = this.generateEmptyVoteTally(currentCand)
+
+        //holds eliminated candidates
+        let eliminatedCand = []
+
+    
         for (let i = 0; i < this.candidates.length; ++i) 
         {
             // iterates the first place candidates number of votes by the number of votes in the vote object
             for (let j = 0; j < values.length; ++j)
             {
                 voteCountArray[this.candidates.indexOf(values[j].voteRanking[0])][0] += values[j].voteCount
-            } 
-                
-            eliminated.push(this.eliminateMinVote(voteCountArray))
-            // console.log(voteCountArray)
+            }  
+            eliminatedCand.push(this.eliminateMinVote(voteCountArray,currentCand))
+            voteCountArray = this.generateEmptyVoteTally(currentCand)
+  
+            console.log("Current Candidates",currentCand)
+            console.log("Eliminated:",eliminatedCand)
+            console.log("Current count:",voteCountArray)
+  
         }
 
         return voteCountArray
     }
 
-    eliminateMinVote(voteCountArray)
+    eliminateMinVote(voteCountArray,currentCand)
     {
+        // console.log(currentCand)
+        // console.log(voteCountArray)
         let minInd = 0
         for (let i = 1; i < voteCountArray.length; ++i) 
         {
-            if (voteCountArray[i][0] < voteCountArray[minInd][0])
+            if (voteCountArray[i][0] < voteCountArray[minInd][0] && currentCand.includes(voteCountArray[i][1]))
                 minInd = i
         }
+
         let minName = voteCountArray[minInd][1]
-        voteCountArray.splice(minInd,1)
+        currentCand.splice(currentCand.indexOf(minName),1)
         return minName
+    }
+
+    generateEmptyVoteTally(names)
+    {
+        //creating 2d array to hold both the candidate name and their total "points"
+        let voteCountArray = new Array(names.length)
+        for (let i = 0; i < voteCountArray.length; ++i)
+        { 
+            voteCountArray[i] = new Array(2)
+            voteCountArray[i][0] = 0
+            voteCountArray[i][1] = names[i]
+        }
+        return voteCountArray
     }
 
     getEmptyVoteTally()
