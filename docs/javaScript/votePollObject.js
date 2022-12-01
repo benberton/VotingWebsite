@@ -120,9 +120,14 @@ class votePoll{
             // iterates the first place candidates number of votes by the number of votes in the vote object
             for (let j = 0; j < values.length; ++j)
             {
-                voteCountArray[this.candidates.indexOf(values[j].voteRanking[0])][0] += values[j].voteCount
+                let topVoteInd = 0
+                while (!currentCand.includes(values[j].voteRanking[topVoteInd]))
+                    topVoteInd++
+                console.log("Highest Candidate - ", values[j].voteRanking[topVoteInd], "Index: " + topVoteInd)
+                voteCountArray[currentCand.indexOf(values[j].voteRanking[topVoteInd])][0] += values[j].voteCount
+                
             }  
-            eliminatedCand.push(this.eliminateMinVote(voteCountArray,currentCand))
+            eliminatedCand.unshift(this.eliminateMinVote(voteCountArray,currentCand))
             voteCountArray = this.generateEmptyVoteTally(currentCand)
   
             console.log("Current Candidates",currentCand)
