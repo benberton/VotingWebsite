@@ -1,0 +1,36 @@
+/* (A) LIST STYLES */
+.slist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 80vh;
+    width: 40vw;
+    left: 50%;
+    right: 50%;
+    /* background-color: red; */
+  }
+  .slist li {
+    text-align: center;
+    justify-content: center;
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid #dfdfdf;
+    background: #f5f5f5;
+    height: 5vh;
+    font-size:3vh;
+  }
+
+  .slist li:hover{
+    /* background-color: #9dfa86; */
+    cursor: pointer;
+  }
+  
+  /* (B) DRAG-AND-DROP HINT */
+  .slist li.hint {
+    border: 1px solid #feffb4;
+    background: #feffb4;
+  }
+  .slist li.active {
+    border: 1px solid #9dfa86;
+    background: #9dfa86;
+  }
