@@ -27,6 +27,25 @@
   font-size: 25;
 }
 
+#listContainer {
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+}
+
+#rankNumbers {
+  padding-top: 50px;
+  float: left;
+  position: relative;
+  border: 1px solid black;
+  width: 50px;
+}
+
+#submitVoteBtn {
+  height: 50px;
+  width: 300px;
+}
+
 #voteSubmittedContainer {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 70;
@@ -34,11 +53,6 @@
   width: 800px;
   text-align: center;
   margin: auto;
-}
-
-#submitVoteBtn {
-  height: 50px;
-  width: 300px;
 }
 
 #voteSubmittedTitle {

@@ -4,6 +4,16 @@ let votePoll = new VotePoll(["Qdoba","Pita Pit","Sushi","Carusos","Hand-Crafted"
 
 document.addEventListener("DOMContentLoaded", ()=>{
     addCandidatesToScreen()
+    //adding numbers to page
+    let numberContainer = document.getElementById("rankNumbers")
+    for (let i = 0; i < votePoll.candidates.length; ++i)
+    {
+        let numberElement = document.createElement("div")
+        numberElement.innerHTML = String(i + 1)
+        numberContainer.appendChild(numberElement)
+    }
+   
+
     //creates javascript for the dragable object
     slist(document.getElementById("sortlist"));
 
