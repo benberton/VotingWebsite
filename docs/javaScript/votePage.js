@@ -1,6 +1,6 @@
 
-let votePoll = new VotePoll(["Bernie Sander", "Joe Biden", "Ron Desantes","Donald Trump"])
-
+// let votePoll = new VotePoll(["Bernie Sander", "Joe Biden", "Ron Desantes","Donald Trump"])
+let votePoll = new VotePoll(["Qdoba","Pita Pit","Sushi","Carusos","Hand-Crafted"])
 
 document.addEventListener("DOMContentLoaded", ()=>{
     addCandidatesToScreen()
@@ -58,5 +58,7 @@ function generateResults()
 {
     console.log("Plurality",votePoll.pluralityResult())
     console.log("Comparison",votePoll.pairwiseComparisonReult())
+    console.log("Plurality W Elim",votePoll.pluralityEliminationResult())
+    console.log("Borda Count",votePoll.boardaCountResult())
     votePoll.printVotes()
 }

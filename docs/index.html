@@ -12,16 +12,18 @@
 
 <html>
     <a href="results.html">Results Page</a>
+    <button onclick=generateResults()>Results</button>
     <body>
         <!-- 'Vote Subitted' title and button -->
         <div id="voteSubmittedContainer" class="hidden">
-            <div>Vote Submitted</div>
+            <div id="voteSubmittedTitle">Vote Submitted</div>
              <button id="newVoteBtn" class="scaleBtn" onclick=revealBallot()>New Vote</button>
         </div>
        
         <!-- Ballot -->
         <div id="voteContainer" class="voteContainer">
-            <div>Ballot</div>
+            <div id="ballotTitle">Ballot</div>
+            <div id="instructions">(Hold and drag items to desired position)</div>
             <ul id="sortlist">
                 <!-- <li>First</li>
                 <li>Second</li>
