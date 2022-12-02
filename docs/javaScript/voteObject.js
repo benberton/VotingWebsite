@@ -1,7 +1,6 @@
 class Vote{
-    constructor(voteRanking, name)
+    constructor(voteRanking)
     {
-        this.name = name
         this.voteRanking = voteRanking
         this.voteCount = 1
         this.key = this.generateKey()

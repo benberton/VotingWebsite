@@ -38,13 +38,21 @@ function clearCandidates()
 function submitVote()
 {
     let candidateOrder = clearCandidates()
-    let name = document.getElementById("voteName").value
-    document.getElementById("voteName").value = ""
-    let vote = new Vote(candidateOrder,name)
+    let vote = new Vote(candidateOrder)
     votePoll.addVote(vote)
     addCandidatesToScreen()
     slist(document.getElementById("sortlist"));
+    //hiding vote container and revealing the "New Vote" button
+    document.getElementById("voteContainer").classList.add("hidden")
+    document.getElementById("voteSubmittedContainer").classList.remove("hidden")
 }
+
+function revealBallot()
+{
+    document.getElementById("voteSubmittedContainer").classList.add("hidden")
+    document.getElementById("voteContainer").classList.remove("hidden")
+}
+
 
 function generateResults()
 {
@@ -53,19 +61,3 @@ function generateResults()
     // votePoll.printVotes()
     votePoll.printAllVotes()
 }
-// let firstVote = new Vote(["Mike","Bibby","James"])
-// let secondVote = new Vote(["Mike","Bibby","James"])
-// let thirdVote = new Vote(["Bibby","Mike","James"])
-// let fourthVote = new Vote(["Bibby","James","Mike"])
-
-
-// votePoll.addVote(firstVote)
-// votePoll.addVote(secondVote)
-// votePoll.addVote(thirdVote)
-// votePoll.addVote(fourthVote)
-
-// // console.log(newPoll.getPluralityResult())
-// // console.log(newPoll.getBoardaCountResult())
-// // console.log(newPoll.getPairwiseComparison())
-// console.log(votePoll.pluralityEliminationResult())
-// votePoll.printVotes()

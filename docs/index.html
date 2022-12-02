@@ -12,9 +12,13 @@
 
 <html>
     <body>
+        <div id="voteSubmittedContainer" class="hidden">
+            <div>Vote Submitted</div>
+             <button id="newVoteBtn" onclick=revealBallot()>New Vote</button>
+        </div>
+       
         <div id="voteContainer" class="voteContainer">
             <div>Ballot</div>
-            <input type="text" id="voteName" placeholder="Enter Name">
             <ul id="sortlist">
                 <!-- <li>First</li>
                 <li>Second</li>
@@ -22,7 +26,7 @@
                 <li>Forth</li>
                 <li>Fifth</li> -->
             </ul>
-            <button id="submitVoteBtn" onclick=submitVote()>Submit</button>
+            <button id="submitVoteBtn" onclick=submitVote()>Submit Vote</button>
         </div>
         <button onclick=generateResults()>Generate Results</button>
     </body>
