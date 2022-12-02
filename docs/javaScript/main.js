@@ -38,7 +38,9 @@ function clearCandidates()
 function submitVote()
 {
     let candidateOrder = clearCandidates()
-    let vote = new Vote(candidateOrder)
+    let name = document.getElementById("voteName").value
+    document.getElementById("voteName").value = ""
+    let vote = new Vote(candidateOrder,name)
     votePoll.addVote(vote)
     addCandidatesToScreen()
     slist(document.getElementById("sortlist"));
@@ -49,6 +51,7 @@ function generateResults()
     console.log("Plurality",votePoll.pluralityResult())
     console.log("Comparison",votePoll.pairwiseComparisonReult())
     // votePoll.printVotes()
+    votePoll.printAllVotes()
 }
 // let firstVote = new Vote(["Mike","Bibby","James"])
 // let secondVote = new Vote(["Mike","Bibby","James"])
