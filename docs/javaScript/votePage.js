@@ -1,5 +1,5 @@
 
-let votePoll = new VotePoll(["Mike","Bibby","James"])
+let votePoll = new VotePoll(["Bernie Sander", "Joe Biden", "Ron Desantes","Donald Trump"])
 
 
 document.addEventListener("DOMContentLoaded", ()=>{
@@ -58,6 +58,5 @@ function generateResults()
 {
     console.log("Plurality",votePoll.pluralityResult())
     console.log("Comparison",votePoll.pairwiseComparisonReult())
-    // votePoll.printVotes()
-    votePoll.printAllVotes()
+    votePoll.printVotes()
 }

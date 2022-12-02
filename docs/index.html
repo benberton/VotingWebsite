@@ -2,7 +2,7 @@
 <!-- Loading javascript files -->
 <script src="javaScript/voteObject.js"></script>
 <script src="javaScript/votePollObject.js"></script>
-<script src="javaScript/main.js"></script>
+<script src="javaScript/votePage.js"></script>
 <!-- Loading css -->
 <link rel="stylesheet" href="css/main.css"/>
 
@@ -11,6 +11,7 @@
 <script src="javaScript/sort-list.js"></script>
 
 <html>
+    <a href="results.html">Results Page</a>
     <body>
         <div id="voteSubmittedContainer" class="hidden">
             <div>Vote Submitted</div>
@@ -28,6 +29,5 @@
             </ul>
             <button id="submitVoteBtn" onclick=submitVote()>Submit Vote</button>
         </div>
-        <button onclick=generateResults()>Generate Results</button>
     </body>
 </html>

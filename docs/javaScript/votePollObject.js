@@ -1,7 +1,6 @@
 class VotePoll{
     constructor(candidates) {
         this.candidates = candidates
-        this.allVotes = []
         this.voteMap = new Map()
     }
 
@@ -12,16 +11,11 @@ class VotePoll{
             alert("Candidates do not match")
         else
         {
-            //adding vote to list of all votes
-            this.allVotes.push(vote)
-
             //if an identical vote exists, the counter on that vote is iterated on
             if (this.voteMap.has(vote.getKey()))
                 this.voteMap.get(vote.getKey()).voteCount++
             else
-                this.voteMap.set(vote.getKey(),vote);
-            
-                
+                this.voteMap.set(vote.getKey(),vote); 
         }
     }
 
@@ -185,11 +179,6 @@ class VotePoll{
     {
         const values = Array.from(this.voteMap.values())
         console.log(values)
-    }
-
-    printAllVotes()
-    {
-        console.log(this.allVotes)
     }
 }
 

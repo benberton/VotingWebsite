@@ -29,6 +29,18 @@
   margin: auto;
 }
 
+#newVoteBtn {
+  font-size: 20;
+  height: 50px;
+  width: 300px;
+  transition: all 200ms;
+}
+
+#newVoteBtn:hover {
+  cursor: pointer;
+  scale: 1.05;
+}
+
 .hidden{
   display: none;
 }
