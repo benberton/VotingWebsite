@@ -1,4 +1,4 @@
-class votePoll{
+class VotePoll{
     constructor(candidates) {
         this.candidates = candidates
         this.voteMap = new Map()
