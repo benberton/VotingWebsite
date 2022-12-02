@@ -4,7 +4,7 @@
 <script src="javaScript/votePollObject.js"></script>
 <script src="javaScript/votePage.js"></script>
 <!-- Loading css -->
-<link rel="stylesheet" href="css/main.css"/>
+<link rel="stylesheet" href="css/votePage.css"/>
 
 <!-- (A) LOAD CSS + JS -->
 <link rel="stylesheet" href="css/sort-list.css"/>
@@ -13,11 +13,13 @@
 <html>
     <a href="results.html">Results Page</a>
     <body>
+        <!-- 'Vote Subitted' title and button -->
         <div id="voteSubmittedContainer" class="hidden">
             <div>Vote Submitted</div>
-             <button id="newVoteBtn" onclick=revealBallot()>New Vote</button>
+             <button id="newVoteBtn" class="scaleBtn" onclick=revealBallot()>New Vote</button>
         </div>
        
+        <!-- Ballot -->
         <div id="voteContainer" class="voteContainer">
             <div>Ballot</div>
             <ul id="sortlist">
@@ -27,7 +29,7 @@
                 <li>Forth</li>
                 <li>Fifth</li> -->
             </ul>
-            <button id="submitVoteBtn" onclick=submitVote()>Submit Vote</button>
+            <button id="submitVoteBtn" class="scaleBtn" onclick=submitVote()>Submit Vote</button>
         </div>
     </body>
 </html>
