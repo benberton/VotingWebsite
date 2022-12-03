@@ -6,21 +6,18 @@ document.addEventListener("DOMContentLoaded", ()=>{
 })
 
 
-function resultClicked(labelID,contentID)
+function resultClicked(resultContainerID)
 {
-    console.log(labelID)
-    let container = document.getElementById(labelID)
-    let content = document.getElementById(contentID)
-    if (container.classList.contains("resultLabelClicked"))
+    let container = document.getElementById(resultContainerID)
+    if (container.classList.contains("resultClicked"))
     {
-        container.classList.remove("resultLabelClicked")
-        content.classList.add("hidden")
+        // content.classList.add("hidden")
+        container.classList.remove("resultClicked")
+        container.classList.add("activeHover")
     }else
     {
-        container.classList.add("resultLabelClicked")
-        content.classList.remove("hidden")
+        // content.classList.remove("hidden")
+        container.classList.add("resultClicked")
+        container.classList.remove("activeHover")
     }
-        
-
-    console.log(labelID)
 }
