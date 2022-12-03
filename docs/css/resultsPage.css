@@ -18,6 +18,7 @@
 #windowLabel{
     text-align: center;
     height: auto;
+    width: auto;
     padding: 5px;
     color: white;
     background-color: #750f7e;
@@ -25,14 +26,22 @@
 
 #allResults {
     font-size: 40px;
+    /* height: 100%; */
     padding: 40px;
+    /* display: grid; */
     display: grid;
+    grid-template-columns: 1fr 1fr ;
+    row-gap: 30px;
+    column-gap: 30px;
+    /* justify-content: space-around; */
+    justify-content:space-evenly;
+
 }
 
 .result {
     border-radius: 20px;
     height: 300px;
-    width: 400px;
+    width: 550px;
     overflow: hidden;
     transition-timing-function: ease-out;
     transition: 300ms all;
@@ -41,7 +50,7 @@
 
 .activeHover:hover {
     cursor: pointer;
-    scale: 1.05;
+    scale: 1.03;
 }
 
 .resultClicked {
