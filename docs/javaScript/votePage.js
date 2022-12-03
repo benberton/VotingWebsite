@@ -26,9 +26,11 @@ function addCandidatesToScreen()
     {
         const candidateEl = document.createElement("li")
         candidateEl.innerHTML = votePoll.candidates[i]
-        const dotIcon = document.createElement("div")
+        let dotIcon = document.createElement("i")
+        //adding three dot icon
+        dotIcon.classList.add("bi")
+        dotIcon.classList.add("bi-three-dots-vertical")
         dotIcon.classList.add("dotIcon")
-        dotIcon.innerHTML = "A"
         candidateEl.appendChild(dotIcon)
         document.getElementById("sortlist").appendChild(candidateEl)
     }
