@@ -2,8 +2,7 @@
     color: black;
     border: 0px;
     border-radius: 20px;
-    overflow: hidden;
-    font-size: 70;
+    overflow: scroll;
     /* text-align: center; */
     margin: auto;
     height: 800px;
@@ -12,10 +11,10 @@
     font-family: Arial, Helvetica, sans-serif;
     background-color: #e2b0e6;
     padding-bottom: 40px;
-    overflow-y: scroll;
 }
 
 #windowLabel{
+    font-size: 70;
     text-align: center;
     height: auto;
     width: auto;
@@ -25,7 +24,6 @@
 }
 
 #allResults {
-    font-size: 40px;
     /* height: 100%; */
     padding: 40px;
     /* display: grid; */
@@ -35,7 +33,6 @@
     column-gap: 30px;
     /* justify-content: space-around; */
     justify-content:space-evenly;
-
 }
 
 .result {

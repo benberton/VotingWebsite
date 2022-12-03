@@ -55,7 +55,7 @@ class VotePoll{
         return voteCountArray
     }
 
-    pairwiseComparisonReult()
+    pairwiseComparisonResult()
     {
         //creating 2d array to hold both the candidate name and their total "points"
         let voteCountArray = this.getEmptyVoteTally()
