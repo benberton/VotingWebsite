@@ -61,8 +61,6 @@ function submitVote()
     //hiding vote container and revealing the "New Vote" button
     document.getElementById("voteContainer").classList.add("hidden")
     document.getElementById("voteSubmittedContainer").classList.remove("hidden")
-    const myObjectString = JSON.stringify(votePoll)
-    localStorage.setItem("votePoll",myObjectString)
 }
 
 function revealBallot()
