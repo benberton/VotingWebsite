@@ -1,10 +1,10 @@
-#resultsContainer {
+#window {
     color: black;
     border: 0px;
     border-radius: 20px;
     overflow: hidden;
     font-size: 70;
-    text-align: center;
+    /* text-align: center; */
     margin: auto;
     height: 800px;
     width: 1200px;
@@ -14,9 +14,40 @@
     padding-bottom: 40px;
 }
 
-#resultsContainerLabel{
+#windowLabel{
+    text-align: center;
     height: auto;
     padding: 5px;
     color: white;
-    background-color: #ab3fb5;
+    background-color: #750f7e;
 }
+
+#allResults {
+    font-size: 40px;
+}
+
+.result {
+    padding: 20px;
+    padding-top: 40px;
+}
+
+.resultLabel {
+    width: 300px;
+    cursor: pointer;
+    padding: 6px;
+    color: white;
+    background-color: #a65bad;
+    transition: 750ms all;
+}
+
+.resultLabelClicked{
+    transition-timing-function: ease-in-out;
+    transition-duration: 1000ms;
+    width: 100%;
+}
+
+.resultContent {
+    height: 100px;
+    background-color: white;
+}
+

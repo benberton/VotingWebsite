@@ -10,8 +10,14 @@
 <html>
     <a href="index.html">Vote Page</a>
     <body>
-        <div id="resultsContainer">
-            <div id="resultsContainerLabel">Results</div>
+        <div id="window">
+            <div id="windowLabel">Results</div>
+            <div id="allResults">
+                <div id="pluralityResult" class="result">
+                    <div id="pluralityLabel" class="resultLabel" onclick="resultClicked('pluralityLabel','pluralityContent')">Plurality Method</div> 
+                    <div id="pluralityContent" class="resultContent hidden"></div>
+                </div>
+            </div>
         </div>
     </body>
 </html>
