@@ -1,6 +1,6 @@
 
 // let votePoll = new VotePoll(["Bernie Sander", "Joe Biden", "Ron Desantes","Donald Trump"])
-let votePoll = new VotePoll(["Qdoba","Pita Pit","Sushi","Carusos","Hand-Crafted"])
+let votePoll = new VotePoll(["Qdoba","Pita Pit","Carusos","McDonalds","Chipoltle","Chick-Fil-A"])
 
 document.addEventListener("DOMContentLoaded", ()=>{
     addCandidatesToScreen()
@@ -9,7 +9,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
     for (let i = 0; i < votePoll.candidates.length; ++i)
     {
         let numberElement = document.createElement("div")
-        numberElement.innerHTML = String(i + 1)
+        numberElement.innerHTML = String((i + 1) + ".")
+        numberElement.classList.add("number")
         numberContainer.appendChild(numberElement)
     }
    

@@ -1,6 +1,5 @@
 #voteContainer {
   color: black;
-  border: 1px solid black;
   border: 0px;
   border-radius: 20px;
   overflow: hidden;
@@ -28,16 +27,20 @@
 }
 
 #listContainer {
+  /* margin-top: ; */
   display: flex;
   justify-content: center;
-  border: 1px solid black;
+}
+
+.number {
+  font-size: 31px;
+  padding-top: 50px;
 }
 
 #rankNumbers {
-  padding-top: 50px;
+  padding-top: 22px;
   float: left;
   position: relative;
-  border: 1px solid black;
   width: 50px;
 }
 
