@@ -26,6 +26,10 @@ function addCandidatesToScreen()
     {
         const candidateEl = document.createElement("li")
         candidateEl.innerHTML = votePoll.candidates[i]
+        const dotIcon = document.createElement("div")
+        dotIcon.classList.add("dotIcon")
+        dotIcon.innerHTML = "A"
+        candidateEl.appendChild(dotIcon)
         document.getElementById("sortlist").appendChild(candidateEl)
     }
 }

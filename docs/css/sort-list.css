@@ -24,7 +24,11 @@
   height: 5vh;
   font-size:3vh;
   /* transition: all 200ms; */
+}
 
+.dotIcon {
+  float: right;
+  font-size: larger;
 }
 
 .slist li:hover{
