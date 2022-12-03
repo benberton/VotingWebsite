@@ -2,6 +2,7 @@
 // let votePoll = new VotePoll(["Bernie Sander", "Joe Biden", "Ron Desantes","Donald Trump"])
 let votePoll = new VotePoll(["Qdoba","Pita Pit","Carusos","McDonalds","Chipoltle","Chick-Fil-A"])
 
+//called when page loads
 document.addEventListener("DOMContentLoaded", ()=>{
     addCandidatesToScreen()
     //adding numbers to page
@@ -13,8 +14,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
         numberElement.classList.add("number")
         numberContainer.appendChild(numberElement)
     }
-   
-
     //creates javascript for the dragable object
     slist(document.getElementById("sortlist"));
 
@@ -44,7 +43,7 @@ function clearCandidates()
     var child = options.lastChild
     while (child) 
     {
-        vote.unshift(child.innerHTML)
+        vote.unshift(child.firstChild.textContent)
         options.removeChild(child);
         child = options.lastElementChild;
     }
@@ -62,6 +61,8 @@ function submitVote()
     //hiding vote container and revealing the "New Vote" button
     document.getElementById("voteContainer").classList.add("hidden")
     document.getElementById("voteSubmittedContainer").classList.remove("hidden")
+    // const myObjectString = JSON.stringify(votePoll)
+    // localStorage.setItem("votePoll",myObjectString)
 }
 
 function revealBallot()
