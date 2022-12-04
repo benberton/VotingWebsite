@@ -2,10 +2,13 @@
 <script src="javaScript/voteObject.js"></script>
 <script src="javaScript/votePollObject.js"></script>
 <script src="javaScript/resultsPage.js"></script>
+<script src="javaScript/popup.js"></script>
 
 <!-- Loading CSS -->
 <link rel="stylesheet" href="css/general.css"/>
 <link rel="stylesheet" href="css/resultsPage.css"/>
+<link rel="stylesheet" href="css/popup.css"/>
+
 
 <html>
     <a href="index.html">Vote Page</a>
@@ -13,7 +16,7 @@
         <div id="window">
             <div id="windowLabel">Results</div>
             <div id="allResults">
-                <div id="pluralityResult" class="result activeHover"  onclick="resultClicked('pluralityResult')">
+                <div id="pluralityResult" class="result activeHover">
                     <div id="pluralityLabel" class="resultLabel">Plurality Method</div> 
                     <div id="pluralityContent" class="resultContent">
                         <!-- <div class="basicContent">
@@ -26,19 +29,31 @@
                         </div> -->
                     </div>
                 </div>
-                <div id="pluralityElimResult" class="result activeHover"  onclick="resultClicked('pluralityElimResult')">
+                <div id="pluralityElimResult" class="result activeHover">
                     <div id="pluralityElimLabel" class="resultLabel">Plurality W/ Elimination</div> 
                     <div id="pluralityElimContent" class="resultContent"></div>
                 </div>
-                <div id="pairwiseCompResult" class="result activeHover"  onclick="resultClicked('pairwiseCompResult')">
+                <div id="pairwiseCompResult" class="result activeHover">
                     <div id="pairwiseCompLabel" class="resultLabel">Pairwise Comparison</div> 
                     <div id="pairwiseCompContent" class="resultContent"></div>
                 </div>
-                <div id="bordaCountResult" class="result activeHover"  onclick="resultClicked('bordaCountResult')">
+                <div id="bordaCountResult" class="result activeHover">
                     <div id="bordaCountLabel" class="resultLabel">Borda Count Method</div> 
                     <div id="bordaCountContent" class="resultContent"></div>
                 </div>
             </div>
         </div>
+
+    <!-- pop up html -->
+    <div class="popUp active" id="pop_up_window">
+        <div class="popUp-header" id="popUp-header">
+            <div id="popUp-title" class="title">Example</div>
+            <button id="closePopUpBtn" onclick=close_pop_up() class="close-button">&times;</button>
+        </div>
+        <div class="popUp-Body">
+            <!-- use lorem to add fake text -->
+        </div>
+    </div>
+    <div  id="overlay"></div>
     </body>
 </html>

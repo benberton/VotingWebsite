@@ -29,11 +29,11 @@ function resultClicked(resultContainerID)
 function fillContent(id,result)
 {
     let contentEl = document.getElementById(id)
+    //adding event listener for popup
     let parent = contentEl.parentElement
-    // console.log(parent.style.height = "200px")
-    // let contentHeight = result.length * 55
-    // parent.style.height = contentHeight
-    // contentEl.innerHTML += result
+    parent.addEventListener("click", e => {
+        open_pop_up(result)
+    })
     const listContainer = document.createElement("div")
     listContainer.classList.add("basicContent")
     for (let i = 0; i < result.length; ++i)
