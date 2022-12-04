@@ -73,7 +73,7 @@ function revealBallot()
 function generateResults()
 {
     console.log("Plurality",votePoll.pluralityResult())
-    console.log("Comparison",votePoll.pairwiseComparisonReult())
+    console.log("Comparison",votePoll.pairwiseComparisonResult())
     console.log("Plurality W Elim",votePoll.pluralityEliminationResult())
     console.log("Borda Count",votePoll.boardaCountResult())
     votePoll.printVotes()
