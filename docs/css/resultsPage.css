@@ -36,7 +36,8 @@
 
 .result {
     border-radius: 20px;
-    height: 300px;
+    height: auto;
+    max-height: 10000px;
     width: 550px;
     width: auto;
     overflow: hidden;
@@ -45,18 +46,12 @@
     /* transition-delay: 300ms; */
 }
 
-.activeHover:hover {
+.result:hover {
     cursor: pointer;
     scale: 1.03;
 }
 
-.resultClicked {
-    height: 600px;
-    width: 100%;
-    transition-timing-function: ease-out;
-    transition: 300ms all;
-    /* transition-delay: 300ms; */
-}
+
 
 .resultLabel {
     font-size: 35;

@@ -1,11 +1,13 @@
-let votePoll = new VotePoll(["Qdoba","Pita Pit","Carusos","McDonalds","Chipoltle","Chick-Fil-A"])
-votePoll.addVote(new Vote(["Qdoba","Pita Pit","Carusos","McDonalds","Chipoltle","Chick-Fil-A"]))
-votePoll.addVote(new Vote(["Qdoba","Pita Pit","Carusos","McDonalds","Chipoltle","Chick-Fil-A"]))
-votePoll.addVote(new Vote(["Qdoba","Pita Pit","Carusos","McDonalds","Chipoltle","Chick-Fil-A"]))
-votePoll.addVote(new Vote(["Qdoba","Pita Pit","Carusos","McDonalds","Chipoltle","Chick-Fil-A"]))
-votePoll.addVote(new Vote(["Qdoba","Pita Pit","Carusos","McDonalds","Chipoltle","Chick-Fil-A"]))
-votePoll.addVote(new Vote(["Qdoba","Pita Pit","Carusos","McDonalds","Chipoltle","Chick-Fil-A"]))
-votePoll.addVote(new Vote(["Qdoba","Pita Pit","Carusos","McDonalds","Chipoltle","Chick-Fil-A"]))
+// let votePoll = new VotePoll(["Qdoba","Pita Pit","Carusos","McDonalds","Chipoltle","Chick-Fil-A"])
+// votePoll.addVote(new Vote(["Qdoba","Pita Pit","Carusos","McDonalds","Chipoltle","Chick-Fil-A"]))
+// votePoll.addVote(new Vote(["Qdoba","Pita Pit","Carusos","McDonalds","Chipoltle","Chick-Fil-A"]))
+// votePoll.addVote(new Vote(["Qdoba","Pita Pit","Carusos","McDonalds","Chipoltle","Chick-Fil-A"]))
+// votePoll.addVote(new Vote(["Qdoba","Pita Pit","Carusos","McDonalds","Chipoltle","Chick-Fil-A"]))
+// votePoll.addVote(new Vote(["Qdoba","Pita Pit","Carusos","McDonalds","Chipoltle","Chick-Fil-A"]))
+// votePoll.addVote(new Vote(["Qdoba","Pita Pit","Carusos","McDonalds","Chipoltle","Chick-Fil-A"]))
+// votePoll.addVote(new Vote(["Qdoba","Pita Pit","Carusos","McDonalds","Chipoltle","Chick-Fil-A"]))
+
+let votePoll = new VotePoll(["Qdoba","Pita Pit","Carusos","McDonalds","Chipoltle","Chick-Fil-A","A","B","c"])
 
 document.addEventListener("DOMContentLoaded", ()=>{
     let contentIDs = ["pluralityContent","pluralityElimContent","pairwiseCompContent","bordaCountContent"]
@@ -21,24 +23,17 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
 function resultClicked(resultContainerID)
 {
-    let container = document.getElementById(resultContainerID)
-    if (container.classList.contains("resultClicked"))
-    {
-        // content.classList.add("hidden")
-        container.classList.remove("resultClicked")
-        container.classList.add("activeHover")
-    }else
-    {
-        // content.classList.remove("hidden")
-        container.classList.add("resultClicked")
-        container.classList.remove("activeHover")
-    }
+    console.log(resultContainerID)
 }
 
 function fillContent(id,result)
 {
     let contentEl = document.getElementById(id)
-    contentEl.innerHTML += result
+    let parent = contentEl.parentElement
+    // console.log(parent.style.height = "200px")
+    // let contentHeight = result.length * 55
+    // parent.style.height = contentHeight
+    // contentEl.innerHTML += result
     const listContainer = document.createElement("div")
     listContainer.classList.add("basicContent")
     for (let i = 0; i < result.length; ++i)
