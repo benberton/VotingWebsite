@@ -7,7 +7,7 @@
     transform: translate(-50%,-50%) scale(0);
     transition: 200ms ease-in-out;
     border: 1px solid black;
-    border-radius: 10px;
+    border-radius: 25px;
     z-index: 999;
     width: 67.5%;
     height: 90%;
@@ -29,12 +29,11 @@
     /* width: 100%; */
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1.5px solid black;
 }
 
 .popUp-header .title {
     color: white;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
 }
 

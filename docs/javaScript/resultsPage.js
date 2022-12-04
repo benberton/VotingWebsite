@@ -32,7 +32,7 @@ function fillContent(id,result)
     //adding event listener for popup
     let parent = contentEl.parentElement
     parent.addEventListener("click", e => {
-        open_pop_up(result)
+        open_pop_up(id,result)
     })
     const listContainer = document.createElement("div")
     listContainer.classList.add("basicContent")

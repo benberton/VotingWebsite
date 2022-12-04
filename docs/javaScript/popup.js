@@ -1,8 +1,12 @@
-function open_pop_up(content)
+function open_pop_up(titleID,content)
 { 
+    let title = document.getElementById(titleID).previousElementSibling.innerHTML
+    document.getElementById("popUp-title").innerHTML = title
+
     const popUp = document.getElementById("pop_up_window")
     if (popUp == null)
         return
+    const overlay = document.getElementById("overlay")
     popUp.classList.add("active")
     overlay.classList.add("active")
 }
@@ -21,7 +25,6 @@ window.addEventListener("click", function(event){
     var popUp = this.document.getElementById("overlay")
     if (popUp.contains(event.target))
     {
-         close_pop_up()
-         close_plan_popUp()
+        close_pop_up()
     }
   });
