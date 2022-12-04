@@ -26,7 +26,6 @@
 #allResults {
     /* height: 100%; */
     padding: 40px;
-    /* display: grid; */
     display: grid;
     grid-template-columns: 1fr 1fr ;
     row-gap: 30px;
@@ -39,6 +38,7 @@
     border-radius: 20px;
     height: 300px;
     width: 550px;
+    width: auto;
     overflow: hidden;
     transition-timing-function: ease-out;
     transition: 300ms all;
@@ -70,10 +70,7 @@
 
 
 .resultContent {
-    border: 5px solid black;
-
-    margin: auto;
-    text-align: center;
+    /* border: 5px solid black; */
     padding: 6px;
     height: 100%;
     width: 100%;
@@ -82,8 +79,8 @@
 }
 
 .basicContent {
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    padding-left: 20px;
     text-align: left;
     font-size: 30px;
-    width: 60%;
 }
