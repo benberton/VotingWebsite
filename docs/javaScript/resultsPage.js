@@ -38,5 +38,19 @@ function resultClicked(resultContainerID)
 function fillContent(id,result)
 {
     let contentEl = document.getElementById(id)
-    contentEl.innerHTML = result
+    contentEl.innerHTML += result
+    const listContainer = document.createElement("div")
+    listContainer.classList.add("basicContent")
+    for (let i = 0; i < result.length; ++i)
+    {
+        const divElement = document.createElement("div")
+        if (result[i].length == 2)
+            divElement.innerHTML = (i+1) + ". " + result[i][1]
+        else
+            divElement.innerHTML = (i+1) + ". " + result[i]
+        
+        listContainer.appendChild(divElement)
+    }
+    contentEl.appendChild(listContainer)
+
 }

@@ -70,6 +70,10 @@
 
 
 .resultContent {
+    border: 5px solid black;
+
+    margin: auto;
+    text-align: center;
     padding: 6px;
     height: 100%;
     width: 100%;
@@ -77,3 +81,9 @@
     background-color: white;
 }
 
+.basicContent {
+    border: 1px solid black;
+    text-align: left;
+    font-size: 30px;
+    width: 60%;
+}
