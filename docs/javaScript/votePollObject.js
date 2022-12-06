@@ -56,11 +56,11 @@ class VotePoll{
         let maxPoints = this.candidates.length
         for (let i = 0; i < values.length; ++i)
         {
-            console.log(values[i].voteCount + " votes have the ranking " + values[i].voteRanking)
+            // console.log(values[i].voteCount + " votes have the ranking " + values[i].voteRanking)
             for (let j = 0; j < values[i].voteRanking.length; ++j)
             {
-                console.log(values[i].voteCount + " vote(s) have/has " + values[i].voteRanking[j] + " in " + (maxPoints - j) + " place. "
-                + values[i].voteRanking[j] + " total = " +  voteCountArray[this.candidates.indexOf(values[i].voteRanking[j])][0] + " + "  + (values[i].voteCount * (maxPoints - j)))
+                // console.log(values[i].voteCount + " vote(s) have/has " + values[i].voteRanking[j] + " in " + (maxPoints - j) + " place. "
+                // + values[i].voteRanking[j] + " total = " +  voteCountArray[this.candidates.indexOf(values[i].voteRanking[j])][0] + " + "  + (values[i].voteCount * (maxPoints - j)))
                 voteCountArray[this.candidates.indexOf(values[i].voteRanking[j])][0] += (values[i].voteCount * (maxPoints - j))
             }
         }
@@ -68,7 +68,17 @@ class VotePoll{
 
         //sorting array by the number of "points"
         voteCountArray.sort(sortFunction)
-        return voteCountArray
+
+        let ranking = []
+        let steps = []
+        for (let i = 0; i < voteCountArray.length; ++i)
+        {
+            ranking.push(voteCountArray[i][1])
+            steps.push(voteCountArray[i][1] + " recieved " + voteCountArray[i][0] + " total points")
+        }
+
+        let result = new Result(ranking,steps)
+        return result
     }
 
     pairwiseComparisonResult()
