@@ -33,6 +33,15 @@ class VotePoll{
         
         //sorting array by the number of votes
         voteCountArray.sort(sortFunction)
+        let ranking = []
+        let steps = []
+        for (let i = 0; i < voteCountArray.length; ++i)
+        {
+            ranking.push(voteCountArray[i][1])
+            steps.push(voteCountArray[i][0] + " first place votes for " + voteCountArray[i][1])
+        }
+        let result = new Result(ranking,steps)
+        console.log(result)
         return voteCountArray
     }
 
