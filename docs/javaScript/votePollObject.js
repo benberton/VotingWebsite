@@ -41,8 +41,7 @@ class VotePoll{
             steps.push(voteCountArray[i][0] + " first place votes for " + voteCountArray[i][1])
         }
         let result = new Result(ranking,steps)
-        console.log(result)
-        return voteCountArray
+        return result
     }
 
     boardaCountResult()
@@ -56,8 +55,16 @@ class VotePoll{
         //iterates the candidates' total scores based on their ranking in the vote
         let maxPoints = this.candidates.length
         for (let i = 0; i < values.length; ++i)
+        {
+            console.log(values[i].voteCount + " votes have the ranking " + values[i].voteRanking)
             for (let j = 0; j < values[i].voteRanking.length; ++j)
+            {
+                console.log(values[i].voteCount + " vote(s) have/has " + values[i].voteRanking[j] + " in " + (maxPoints - j) + " place. "
+                + values[i].voteRanking[j] + " total = " +  voteCountArray[this.candidates.indexOf(values[i].voteRanking[j])][0] + " + "  + (values[i].voteCount * (maxPoints - j)))
                 voteCountArray[this.candidates.indexOf(values[i].voteRanking[j])][0] += (values[i].voteCount * (maxPoints - j))
+            }
+        }
+         
 
         //sorting array by the number of "points"
         voteCountArray.sort(sortFunction)
