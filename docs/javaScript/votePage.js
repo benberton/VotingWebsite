@@ -76,6 +76,7 @@ function generateResults()
     localStorage.setItem("pluralityElim",JSON.stringify(votePoll.pluralityEliminationResult()))
     localStorage.setItem("Borda",JSON.stringify(votePoll.boardaCountResult()))
     localStorage.setItem("Comparison",JSON.stringify(votePoll.pairwiseComparisonResult()))
+    localStorage.setItem("voteCount",votePoll.totalVotes)
     
     console.log("Plurality",votePoll.pluralityResult())
     console.log("Comparison",votePoll.pairwiseComparisonResult())

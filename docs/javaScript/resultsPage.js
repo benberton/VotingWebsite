@@ -17,6 +17,7 @@
 document.addEventListener("DOMContentLoaded", ()=>{
     let contentIDs = ["pluralityContent","pluralityElimContent","pairwiseCompContent","bordaCountContent"]
     let resultNames = ["plurality","pluralityElim","Comparison","Borda"]
+    document.getElementById("windowLabel").innerHTML = "Result: " + localStorage.getItem("voteCount") + " Votes"
     //holds the result objects
     let resultObjects = []
     for (let i = 0; i < resultNames.length; ++i)
