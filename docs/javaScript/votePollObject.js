@@ -40,7 +40,10 @@ class VotePoll{
         for (let i = 0; i < voteCountArray.length; ++i)
         {
             ranking.push(voteCountArray[i][1])
-            steps.push(voteCountArray[i][0] + " first place votes for " + voteCountArray[i][1])
+            if (voteCountArray[i][0] != 1)
+                steps.push(voteCountArray[i][0] + " first place votes for " + voteCountArray[i][1])
+            else
+                steps.push(voteCountArray[i][0] + " first place vote for " + voteCountArray[i][1])
         }
         let result = new Result(ranking,steps)
         return result
@@ -126,7 +129,10 @@ class VotePoll{
         for (let i = 0; i < voteCountArray.length; ++i)
         {
             ranking.push(voteCountArray[i][1])
-            steps.push(voteCountArray[i][1] + " wins " + voteCountArray[i][0] + " time(s) head to head")
+            if (voteCountArray[i][0] != 1)
+                steps.push(voteCountArray[i][1] + " wins " + voteCountArray[i][0] + " times head to head")
+            else
+                steps.push(voteCountArray[i][1] + " wins " + voteCountArray[i][0] + " time head to head")     
         }
         let result = new Result(ranking,steps)
         return result

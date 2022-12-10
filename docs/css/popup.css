@@ -12,7 +12,8 @@
     width: 67.5%;
     height: 90%;
     max-width: 80%;
-    background-color: #e2b0e6;
+    /* background-color: #e2b0e6; */
+    background-color: transparent;
 }
 
 .popUp.active{
@@ -21,9 +22,9 @@
 
 .popUp-header{
     /* border: 5px solid black; */
-    font-size: 80;
+    font-size: 80px;
     padding: 20px;
-    background-color: #750f7e;
+    background-color: #9a35a3;
     height: 60;
     display: flex;
     /* width: 100%; */
@@ -33,7 +34,7 @@
 
 .popUp-header .title {
     color: white;
-    font-size: 30px;
+    font-size: 40px;
     font-weight: bold;
 }
 
@@ -59,9 +60,12 @@
 }
 
 .popUp-Body {
+    font-size: 30px;
+    height: 100%;
     padding: 10px 15px;
     max-height:calc(100% - 110px);
     overflow-y: scroll;
+    background-color: white;
 }
 
 #pop_up_window{
