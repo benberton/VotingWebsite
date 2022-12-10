@@ -88,7 +88,6 @@ class VotePoll{
 
         //getting votes
         const values = Array.from(this.voteMap.values())
-
         for (let i = 0; i < this.candidates.length - 1; ++i)
         {
             for (let j = i + 1; j < this.candidates.length; ++j)
@@ -119,8 +118,16 @@ class VotePoll{
 
         //sorting array by the number of "points"
         voteCountArray.sort(sortFunction)
-
-        return voteCountArray
+        
+        let ranking = []
+        let steps = []
+        for (let i = 0; i < voteCountArray.length; ++i)
+        {
+            ranking.push(voteCountArray[i][1])
+            steps.push(voteCountArray[i][1] + " wins " + voteCountArray[i][0] + " time(s) head to head")
+        }
+        let result = new Result(ranking,steps)
+        return result
     }
     
 
@@ -140,7 +147,7 @@ class VotePoll{
         //holds eliminated candidates
         let eliminatedCand = []
 
-    
+        let steps = []
         for (let i = 0; i < this.candidates.length; ++i) 
         {
             // iterates the first place candidates number of votes by the number of votes in the vote object
@@ -153,10 +160,13 @@ class VotePoll{
             }  
             eliminatedCand.unshift(this.eliminateMinVote(voteCountArray,currentCand))
             voteCountArray = this.generateEmptyVoteTally(currentCand) 
-            // console.log("Round " + (i + 1) + ": " + eliminatedCand[0] + " eliminated")  
+            eliminatedCand.push()
+            //only last candidate left is not marked as elimated
+            if (i < this.candidates.length - 1)
+                steps.push("Round " + (i + 1) + ": " + eliminatedCand[0] + " eliminated")  
         }
-
-        return eliminatedCand
+        let result = new Result(eliminatedCand,steps)
+        return result
     }
 
     eliminateMinVote(voteCountArray,currentCand)
