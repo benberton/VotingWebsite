@@ -1,7 +1,7 @@
 function open_pop_up(titleID,resultObj)
 { 
     let title = document.getElementById(titleID).previousElementSibling.innerHTML
-    document.getElementById("popUpTitle").innerHTML = title + " Explanation"
+    document.getElementById("popUpTitle").innerHTML = title + " Justification"
     const listContainer = document.createElement("div")
    
     //adding steps to pop up

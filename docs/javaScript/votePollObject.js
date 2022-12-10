@@ -2,6 +2,7 @@ class VotePoll{
     constructor(candidates) {
         this.candidates = candidates
         this.voteMap = new Map()
+        this.totalVotes = 0
     }
 
     addVote(vote)
@@ -11,6 +12,7 @@ class VotePoll{
             alert("Candidates do not match")
         else
         {
+            this.totalVotes++
             //if an identical vote exists, the counter on that vote is iterated on
             if (this.voteMap.has(vote.getKey()))
                 this.voteMap.get(vote.getKey()).voteCount++
@@ -158,21 +160,30 @@ class VotePoll{
                     topVoteInd++
                 voteCountArray[currentCand.indexOf(values[j].voteRanking[topVoteInd])][0] += values[j].voteCount           
             }  
-            eliminatedCand.unshift(this.eliminateMinVote(voteCountArray,currentCand))
+
+            //holds an array with the eliminated party's name and the number of votes they recieved
+            let eliminated = this.eliminateMinVote(voteCountArray,currentCand)
+
+            //adds the name of the eliminated candidate to the list of eliminated candidates
+            eliminatedCand.unshift(eliminated[0])
+
+            //resetting vote count array without eliminated candidate
             voteCountArray = this.generateEmptyVoteTally(currentCand) 
-            eliminatedCand.push()
+
             //only last candidate left is not marked as elimated
             if (i < this.candidates.length - 1)
-                steps.push("Round " + (i + 1) + ": " + eliminatedCand[0] + " eliminated")  
+                steps.push("Round " + (i + 1) + ": " + eliminatedCand[0] + " eliminated")   // "(Recieved " + eliminated[1] + "/" + this.totalVotes + " first place votes)"
+           
         }
+
+        steps.push("Result: " + eliminatedCand[0] + " wins")
+
         let result = new Result(eliminatedCand,steps)
         return result
     }
 
     eliminateMinVote(voteCountArray,currentCand)
     {
-        // console.log(currentCand)
-        // console.log(voteCountArray)
         let minInd = 0
         for (let i = 1; i < voteCountArray.length; ++i) 
         {
@@ -182,7 +193,7 @@ class VotePoll{
 
         let minName = voteCountArray[minInd][1]
         currentCand.splice(currentCand.indexOf(minName),1)
-        return minName
+        return [minName,minInd]
     }
 
     generateEmptyVoteTally(names)
