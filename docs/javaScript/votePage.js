@@ -72,9 +72,26 @@ function revealBallot()
 
 function generateResults()
 {
+    localStorage.setItem("plurality",JSON.stringify(votePoll.pluralityResult()))
+    localStorage.setItem("pluralityElim",JSON.stringify(votePoll.pluralityEliminationResult()))
+    localStorage.setItem("Borda",JSON.stringify(votePoll.boardaCountResult()))
+    localStorage.setItem("Comparison",JSON.stringify(votePoll.pairwiseComparisonResult()))
+    
     console.log("Plurality",votePoll.pluralityResult())
     console.log("Comparison",votePoll.pairwiseComparisonResult())
     console.log("Plurality W Elim",votePoll.pluralityEliminationResult())
     console.log("Borda Count",votePoll.boardaCountResult())
-    votePoll.printVotes()
+
 }
+
+// localStorage.setItem("pluralityRanking",votePoll.pluralityResult().ranking)
+// localStorage.setItem("pluralitySteps",votePoll.pluralityResult().steps)
+
+// localStorage.setItem("pluralityElimRanking",votePoll.pluralityEliminationResult().ranking)
+// localStorage.setItem("pluralityElimSteps",votePoll.pluralityEliminationResult().steps)
+
+// localStorage.setItem("BordaRanking",votePoll.boardaCountResult().ranking)
+// localStorage.setItem("BordaSteps",votePoll.boardaCountResult().steps)
+
+// localStorage.setItem("ComparisonRanking",votePoll.pairwiseComparisonResult().ranking)
+// localStorage.setItem("ComparisonSteps",votePoll.pairwiseComparisonResult().steps)
