@@ -1,9 +1,23 @@
-function open_pop_up(titleID,content)
+function open_pop_up(titleID,resultObj)
 { 
     let title = document.getElementById(titleID).previousElementSibling.innerHTML
-    document.getElementById("popUp-title").innerHTML = title
+    document.getElementById("popUpTitle").innerHTML = title + " Explanation"
+    const listContainer = document.createElement("div")
+   
+    //adding steps to pop up
+    let contentEl = document.getElementById("popUpBody")
+    contentEl.innerHTML = ""
+    for (let i = 0; i < resultObj.steps.length; ++i)
+    {
+        const divElement = document.createElement("div")
+        divElement.innerHTML = resultObj.steps[i]
+            
+        listContainer.appendChild(divElement)
+    }
+    contentEl.appendChild(listContainer)
 
-    const popUp = document.getElementById("pop_up_window")
+
+    const popUp = document.getElementById("popUpWindow")
     if (popUp == null)
         return
     const overlay = document.getElementById("overlay")
@@ -13,7 +27,7 @@ function open_pop_up(titleID,content)
 
 function close_pop_up()
 {
-    const popUp = document.getElementById("pop_up_window")
+    const popUp = document.getElementById("popUpWindow")
     const overlay = document.getElementById("overlay")
     if (popUp == null)
         return
