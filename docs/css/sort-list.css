@@ -23,6 +23,8 @@
   /* background: #449DD1; */
   height: 5vh;
   font-size:3vh;
+  cursor: pointer;
+  border: 2px solid transparent;
   /* transition: all 200ms; */
 }
 
@@ -34,7 +36,8 @@
 .slist li:hover{
   /* background-color: #9dfa86; */
   cursor: pointer;
-  /* scale: 1.02; */
+  border: 2px solid grey;
+  /* scale: 1.05; */
 }
 
 
