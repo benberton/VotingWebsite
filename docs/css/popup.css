@@ -41,6 +41,7 @@
 }
 
 .popUp-header .close-button{
+    padding: 10px;
     color: white;
     cursor: pointer;
     border: none;
@@ -64,7 +65,7 @@
 .popUp-Body {
     font-size: 30px;
     /* height: 100%; */
-    padding: 10px 15px;
+    padding: 20px;
     max-height:calc(100% - 110px);
     overflow-y: scroll;
     background-color: white;
