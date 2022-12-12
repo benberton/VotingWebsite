@@ -236,6 +236,7 @@ class VotePoll{
         return voteCountArray
     }
 
+    //adds ties to rankings
     addTies(voteCountArray)
     {
         for (let i = 0; i < voteCountArray.length - 1; ++i)
@@ -243,12 +244,12 @@ class VotePoll{
             if (voteCountArray[i][0] == voteCountArray[i + 1][0])
             {
                 voteCountArray[i][1] += " (Tie)"
-                if (i == voteCountArray.length - 2)
-                    voteCountArray[i + 1][1] += " (Tie)"
+                voteCountArray[i + 1][1] += " (Tie)"
+                //prevents having tie added twice
+                i++
             }
         }
     }
-
 
     printVotes()
     {
