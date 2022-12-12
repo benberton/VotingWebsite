@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
     let resultObjects = []
     for (let i = 0; i < resultNames.length; ++i)
         resultObjects.push(JSON.parse(localStorage.getItem(resultNames[i])))
-   console.log(resultObjects)
     // let pollResults = [votePoll.pluralityResult(),votePoll.pluralityEliminationResult(),votePoll.pairwiseComparisonResult(),votePoll.boardaCountResult()]
     for (let i = 0; i < contentIDs.length; ++i)
         fillContent(contentIDs[i],resultObjects[i])
@@ -51,7 +50,15 @@ function fillContent(id,resultObj)
     for (let i = 0; i < resultObj.ranking.length; ++i)
     {
         const divElement = document.createElement("div")
-        divElement.innerHTML = (i+1) + ". " + resultObj.ranking[i]
+
+        if (i < resultObj.ranking.length && resultObj.ranking[i] == resultObj.ranking[i + 1])
+        {
+            divElement.innerHTML = (i+1) + ". " + resultObj.ranking[i] + "(Tie)"
+        }else
+        {
+            divElement.innerHTML = (i+1) + ". " + resultObj.ranking[i]
+        }
+       
             
         listContainer.appendChild(divElement)
     }

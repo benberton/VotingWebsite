@@ -35,6 +35,10 @@ class VotePoll{
         
         //sorting array by the number of votes
         voteCountArray.sort(sortFunction)
+
+        this.addTies(voteCountArray)         
+               
+
         let ranking = []
         let steps = []
         for (let i = 0; i < voteCountArray.length; ++i)
@@ -73,6 +77,8 @@ class VotePoll{
 
         //sorting array by the number of "points"
         voteCountArray.sort(sortFunction)
+
+        this.addTies(voteCountArray)         
 
         let ranking = []
         let steps = []
@@ -124,6 +130,8 @@ class VotePoll{
         //sorting array by the number of "points"
         voteCountArray.sort(sortFunction)
         
+        this.addTies(voteCountArray)         
+
         let ranking = []
         let steps = []
         for (let i = 0; i < voteCountArray.length; ++i)
@@ -227,6 +235,20 @@ class VotePoll{
         }
         return voteCountArray
     }
+
+    addTies(voteCountArray)
+    {
+        for (let i = 0; i < voteCountArray.length - 1; ++i)
+        {
+            if (voteCountArray[i][0] == voteCountArray[i + 1][0])
+            {
+                voteCountArray[i][1] += " (Tie)"
+                if (i == voteCountArray.length - 2)
+                    voteCountArray[i + 1][1] += " (Tie)"
+            }
+        }
+    }
+
 
     printVotes()
     {
