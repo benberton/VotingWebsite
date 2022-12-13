@@ -51,14 +51,7 @@ function fillContent(id,resultObj)
     {
         const divElement = document.createElement("div")
 
-        if (i < resultObj.ranking.length && resultObj.ranking[i] == resultObj.ranking[i + 1])
-        {
-            divElement.innerHTML = (i+1) + ". " + resultObj.ranking[i] + "(Tie)"
-        }else
-        {
-            divElement.innerHTML = (i+1) + ". " + resultObj.ranking[i]
-        }
-       
+        divElement.innerHTML = resultObj.ranking[i]   
             
         listContainer.appendChild(divElement)
     }

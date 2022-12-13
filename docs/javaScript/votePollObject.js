@@ -78,16 +78,11 @@ class VotePoll{
         //sorting array by the number of "points"
         voteCountArray.sort(sortFunction)
 
-        this.addTiesToRanking(voteCountArray)         
-
-        let ranking = []
+        let ranking = this.addTiesToRanking(voteCountArray)         
         let steps = []
         for (let i = 0; i < voteCountArray.length; ++i)
-        {
-            ranking.push(voteCountArray[i][1])
             steps.push(voteCountArray[i][1] + " recieved " + voteCountArray[i][0] + " total points")
-        }
-
+        
         let result = new Result(ranking,steps)
         return result
     }
@@ -130,13 +125,12 @@ class VotePoll{
         //sorting array by the number of "points"
         voteCountArray.sort(sortFunction)
         
-        this.addTiesToRanking(voteCountArray)         
+   
 
-        let ranking = []
+        let ranking = this.addTiesToRanking(voteCountArray)       
         let steps = []
         for (let i = 0; i < voteCountArray.length; ++i)
         {
-            ranking.push(voteCountArray[i][1])
             if (voteCountArray[i][0] != 1)
                 steps.push(voteCountArray[i][1] + " wins " + voteCountArray[i][0] + " times head to head")
             else
@@ -191,8 +185,10 @@ class VotePoll{
         }
 
         steps.push("Result: " + eliminatedCand[0] + " wins")
-
-        let result = new Result(eliminatedCand,steps)
+        let ranking = []
+        for (let i = 0; i < eliminatedCand.length; ++i)
+            ranking.push((i + 1) + ". " + eliminatedCand[i])
+        let result = new Result(ranking,steps)
         return result
     }
 
@@ -240,23 +236,18 @@ class VotePoll{
     addTiesToRanking(voteCountArray)
     {
         let ranking = []
-        for (let i = 0; i < voteCountArray.length - 1; ++i)
+        for (let i = 0; i < voteCountArray.length; ++i)
         {
-            ranking.push((i + 1) + "." + voteCountArray[i][1])
-            let currentInd = i
-            while (currentInd < voteCountArray.length - 1 && voteCountArray[i][0] == voteCountArray[currentInd + 1][0])
+            //if the ranking isn't the first item in the list, then the item above it parsed for the next available place
+            if (i > 0)
             {
-                ranking.push((i + 1) + "." + voteCountArray[currentInd][1])
-                currentInd++
-            }
-            i += (currentInd - i)
-            // if (voteCountArray[i][0] == voteCountArray[i + 1][0])
-            // {
-            //     voteCountArray[i][1] += " (Tie)"
-            //     voteCountArray[i + 1][1] += " (Tie)"
-            //     //prevents having tie added twice
-            //     i++
-            // }
+                //if it ties with the value above it, the same place is used, otherwise the place is iterated by one
+                if (voteCountArray[i][0] == voteCountArray[i - 1][0])
+                    ranking.push(ranking[i - 1][0] + ". " + voteCountArray[i][1])
+                else
+                    ranking.push((parseInt(ranking[i - 1][0]) + 1) + ". " + voteCountArray[i][1])
+            }else
+                ranking.push((i + 1) + ". " + voteCountArray[i][1])
         }
         return ranking
     }
