@@ -36,14 +36,14 @@ class VotePoll{
         //sorting array by the number of votes
         voteCountArray.sort(sortFunction)
 
-        this.addTies(voteCountArray)         
+               
                
 
-        let ranking = []
+        let ranking = this.addTiesToRanking(voteCountArray)  
         let steps = []
         for (let i = 0; i < voteCountArray.length; ++i)
         {
-            ranking.push(voteCountArray[i][1])
+            // ranking.push(voteCountArray[i][1])
             if (voteCountArray[i][0] != 1)
                 steps.push(voteCountArray[i][0] + " first place votes for " + voteCountArray[i][1])
             else
@@ -78,7 +78,7 @@ class VotePoll{
         //sorting array by the number of "points"
         voteCountArray.sort(sortFunction)
 
-        this.addTies(voteCountArray)         
+        this.addTiesToRanking(voteCountArray)         
 
         let ranking = []
         let steps = []
@@ -130,7 +130,7 @@ class VotePoll{
         //sorting array by the number of "points"
         voteCountArray.sort(sortFunction)
         
-        this.addTies(voteCountArray)         
+        this.addTiesToRanking(voteCountArray)         
 
         let ranking = []
         let steps = []
@@ -237,18 +237,28 @@ class VotePoll{
     }
 
     //adds ties to rankings
-    addTies(voteCountArray)
+    addTiesToRanking(voteCountArray)
     {
+        let ranking = []
         for (let i = 0; i < voteCountArray.length - 1; ++i)
         {
-            if (voteCountArray[i][0] == voteCountArray[i + 1][0])
+            ranking.push(voteCountArray[i][1])
+            let currentInd = i
+            while (currentInd < voteCountArray.length - 1 && voteCountArray[i][0] == voteCountArray[currentInd + 1][0])
             {
-                voteCountArray[i][1] += " (Tie)"
-                voteCountArray[i + 1][1] += " (Tie)"
-                //prevents having tie added twice
-                i++
+                ranking[i] += ", " + voteCountArray[currentInd + 1][1]
+                currentInd++
             }
+            i += (currentInd - i)
+            // if (voteCountArray[i][0] == voteCountArray[i + 1][0])
+            // {
+            //     voteCountArray[i][1] += " (Tie)"
+            //     voteCountArray[i + 1][1] += " (Tie)"
+            //     //prevents having tie added twice
+            //     i++
+            // }
         }
+        return ranking
     }
 
     printVotes()
