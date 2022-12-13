@@ -242,11 +242,11 @@ class VotePoll{
         let ranking = []
         for (let i = 0; i < voteCountArray.length - 1; ++i)
         {
-            ranking.push(voteCountArray[i][1])
+            ranking.push((i + 1) + "." + voteCountArray[i][1])
             let currentInd = i
             while (currentInd < voteCountArray.length - 1 && voteCountArray[i][0] == voteCountArray[currentInd + 1][0])
             {
-                ranking[i] += ", " + voteCountArray[currentInd + 1][1]
+                ranking.push((i + 1) + "." + voteCountArray[currentInd][1])
                 currentInd++
             }
             i += (currentInd - i)
