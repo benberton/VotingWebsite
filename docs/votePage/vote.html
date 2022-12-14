@@ -1,0 +1,51 @@
+<!-- FA Icons -->
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css'> 
+<!-- Loading javascript files -->
+<script src="../javaScript/voteObject.js"></script>
+<script src="../javaScript/votePollObject.js"></script>
+<script src="../javaScript/resultObj.js"></script>
+<script src="votePage.js"></script>
+
+
+<!-- Loading css -->
+<link rel="stylesheet" href="../css/general.css"/>
+<link rel="stylesheet" href="votePage.css"/>
+
+<!-- (Sort List) LOAD CSS + JS -->
+<script src="../sort-list/sort-list.js"></script>
+<link rel="stylesheet" href="../sort-list/sort-list.css"/>
+
+<html>
+    <a href="../resultsPage/results.html">Results Page</a>
+    <button onclick=generateResults()>Results</button>
+    <body>
+        <!-- <i class="fa-solid fa-grip-dots-vertical"></i> -->
+        <!-- 'Vote Subitted' title and button -->
+        <div id="voteSubmittedContainer" class="hidden">
+            <div id="voteSubmittedTitle">Vote Submitted</div>
+             <button id="newVoteBtn" class="scaleBtn" onclick=revealBallot()>New Vote</button>
+        </div>
+       
+        <!-- Ballot -->
+        <div id="voteContainer" class="voteContainer">
+            <div id="ballotTitle">Ballot</div>
+            <div id="instructions">(Hold and drag items to desired position)</div>
+            <div id="listContainer">
+                <div id="rankNumbers">
+                    <!-- <div>1</div>
+                    <div>2</div>
+                    <div>3</div> -->
+                </div>
+                <ul id="sortlist">
+                <!-- <li>First</li>
+                <li>Second</li>
+                <li>Third</li>
+                <li>Forth</li>
+                <li>Fifth</li> -->
+                </ul>
+            </div>
+         
+            <button id="submitVoteBtn" class="scaleBtn" onclick=submitVote()>Submit Vote</button>
+        </div>
+    </body>
+</html>
