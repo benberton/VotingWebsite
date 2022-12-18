@@ -1,18 +1,3 @@
-// let votePoll = new VotePoll(["Qdoba","Pita Pit","Carusos","McDonalds","Chipoltle","Chick-Fil-A"])
-// votePoll.addVote(new Vote(["Qdoba","Pita Pit","Carusos","McDonalds","Chipoltle","Chick-Fil-A"]))
-// votePoll.addVote(new Vote(["Qdoba","Pita Pit","Carusos","McDonalds","Chipoltle","Chick-Fil-A"]))
-// votePoll.addVote(new Vote(["Qdoba","Pita Pit","Carusos","McDonalds","Chipoltle","Chick-Fil-A"]))
-// votePoll.addVote(new Vote(["Qdoba","Pita Pit","Carusos","McDonalds","Chipoltle","Chick-Fil-A"]))
-// votePoll.addVote(new Vote(["Qdoba","Pita Pit","Carusos","McDonalds","Chipoltle","Chick-Fil-A"]))
-// votePoll.addVote(new Vote(["Qdoba","Pita Pit","Carusos","McDonalds","Chipoltle","Chick-Fil-A"]))
-// votePoll.addVote(new Vote(["Qdoba","Pita Pit","Carusos","McDonalds","Chipoltle","Chick-Fil-A"]))
-
-// let votePoll = new VotePoll(["Qdoba","Pita Pit","Carusos","McDonalds","Chipoltle","Chick-Fil-A"])
-// localStorage.setItem("plurality",votePoll.pluralityResult())
-// localStorage.setItem("pluralityElim",votePoll.pluralityEliminationResult())
-// localStorage.setItem("Borda",votePoll.boardaCountResult())
-// localStorage.setItem("Comparison",votePoll.pairwiseComparisonResult())
-
 //fills the results page with the content held in the local storage for each result type
 document.addEventListener("DOMContentLoaded", ()=>{
     let contentIDs = ["pluralityContent","pluralityElimContent","pairwiseCompContent","bordaCountContent"]

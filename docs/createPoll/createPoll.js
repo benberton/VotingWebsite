@@ -24,13 +24,20 @@ function displayPollItems(items)
     {
         const item = document.createElement("div")
         item.innerHTML = items[i]
+        item.classList.add("item")
         //if item is clicked, then it is removed from the list
         item.addEventListener("click", e=> {
             items.splice(i,1)
             item.remove()
         })
+        //adding hidden x
+        const xLetter = document.createElement("div")
+        xLetter.innerHTML = "&times;"  
+        xLetter.classList.add("hiddenX")
+        item.appendChild(xLetter)
+
         container.appendChild(item)
-        console.log(item)
+        
     }
 }
 
