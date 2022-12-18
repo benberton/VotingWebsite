@@ -1,4 +1,7 @@
 <html>
+    <!-- JavaScript -->
+    <script src="createPoll.js"></script>
+
     <!-- css -->
     <link rel='stylesheet' href='createPoll.css'> 
     <link rel='stylesheet' href='../css/general.css'> 
@@ -8,6 +11,15 @@
     <body>
         <div id="window">
             <div id="windowLabel">Create Poll</div>
+            <div id="content">
+                <div id="inputContainer">
+                    <input type="text" id="pollInput" placeholder="Enter Item">
+                    <button id="addButton" onclick=addItem()>Add</button>
+                </div>
+                <div id="pollContainer">
+                    result
+                </div>
+            </div>
         </div> 
     </body>
    
