@@ -1,4 +1,3 @@
-let pollItems = []
 
 //adds item to array of pollItems and refreshes the page with updated items
 function addItem()
@@ -7,27 +6,25 @@ function addItem()
     let input = document.getElementById("pollInput").value
     //clearing input
     document.getElementById("pollInput").value = ""
-    pollItems.push(input)
-    displayPollItems(pollItems)
+    displayItem(input)
 }
 
 //adds the current poll items to the page for the user to see
-function displayPollItems(items)
+function displayItem(input)
 {
     const container = document.getElementById("pollContainer")
-    //clears container
-    while (container.childElementCount > 0)
-        container.firstChild.remove()
+    // //clears container
+    // while (container.childElementCount > 0)
+    //     container.firstChild.remove()
 
-    //adding poll elements to container
-    for (let i = 0; i < items.length; ++i)
-    {
+    // //adding poll elements to container
+    // for (let i = 0; i < items.length; ++i)
+    // {
         const item = document.createElement("div")
-        item.innerHTML = items[i]
+        item.innerHTML = input
         item.classList.add("item")
         //if item is clicked, then it is removed from the list
         item.addEventListener("click", e=> {
-            items.splice(i,1)
             item.remove()
         })
         //adding hidden x
@@ -38,7 +35,7 @@ function displayPollItems(items)
 
         container.appendChild(item)
         
-    }
+    // }
 }
 
 document.addEventListener("DOMContentLoaded", ()=>{
