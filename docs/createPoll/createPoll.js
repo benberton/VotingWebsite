@@ -12,7 +12,7 @@ function addItem()
 //displays a string as an element in a container
 function displayItem(input)
 {
-const container = document.getElementById("pollContainer")
+    const container = document.getElementById("pollContainer")
     const item = document.createElement("div")
     item.innerHTML = input
     item.classList.add("item")
@@ -32,7 +32,12 @@ const container = document.getElementById("pollContainer")
 //collects the current desired poll items and saves them in local storage
 function generatePoll()
 {
-    console.log("generating poll")
+    const container = document.getElementById("pollContainer")
+    let list = []
+    //items start at index 1, index 0 holds emty space of some sort
+    for (let i = 1; i < container.childNodes.length; ++i)
+        list.push(container.childNodes[i].firstChild.nodeValue)
+    return list
 }
 
 document.addEventListener("DOMContentLoaded", ()=>{
