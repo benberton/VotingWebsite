@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
     .then((response) => response.json())
     .then((data) => {
         //candidates added to page after getting result from backend
-        console.log('Success:', data);
         addCandidatesToScreen(data)
         //creates javascript for the dragable object
         slist(document.getElementById("sortlist"));

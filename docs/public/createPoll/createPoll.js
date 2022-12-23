@@ -93,8 +93,30 @@ function generatePoll()
 }
 
 document.addEventListener("DOMContentLoaded", ()=>{
-    var input = document.getElementById("pollInput");
+    console.log(document.cookie)
+    //session id pulled from server if one does not exist
+    if(document.cookie == '')
+    {
+        //getting ID and storing it in cookie
+        fetch("http://localhost:3000/api/getID", {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({"title": "Request for ID"}),
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            document.cookie = data.ID
+            // console.log(document.cookie)
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    }
+        
     //when 'Enter' is clicked, addItem() called
+    var input = document.getElementById("pollInput");
     input.addEventListener("keypress", function(event) {
         // If the user presses the "Enter" key on the keyboard
         if (event.key === "Enter")

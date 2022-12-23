@@ -4,6 +4,7 @@ const fs = require('fs')
 const port = 3000
 const app = express()
 
+let curIDNum = 1
 let poll = null
 
 app.use(express.static('public'))
@@ -23,6 +24,16 @@ app.post("/api/createPoll",function(req,res)
     poll = new VotePoll(req.body)
     res.end()
 })
+
+//when a new id is requested
+//when the poll is created (request body has candidates)
+app.post("/api/getID",function(req,res)
+{
+    res.send({"ID": curIDNum})
+    curIDNum++
+    res.end()
+})
+
 
 //when the vote is submitted (request body has candidate order)
 app.post("/api/vote", function(req,res) {
