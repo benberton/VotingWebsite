@@ -1,6 +1,5 @@
 //called when page loads
 document.addEventListener("DOMContentLoaded", ()=>{
-    console.log(document.cookie)
     //getting candidates
     fetch('http://localhost:3000/api/getCandidates', {
         method: 'POST', // or 'PUT'
@@ -71,7 +70,7 @@ function submitVote()
         headers: {
         'Content-Type': 'application/json',
         },
-        body: JSON.stringify({"key": document.cookie}),
+        body: JSON.stringify({"key": '1'}),
     })
     .then((response) => response.json())
     .then((data) => {
@@ -95,7 +94,7 @@ function submitVote()
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({"key" : document.cookie, "candidates" : candidateOrder}),
+        body: JSON.stringify({"key" : '1', "candidates" : candidateOrder}),
     })
 
 }

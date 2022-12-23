@@ -48,7 +48,6 @@ app.post("/api/vote", function(req,res) {
 //returns the candidates
 app.post("/api/getCandidates", function(req,res) {
     let poll = pollMap.get(req.body.key)
-    console.log(poll)
     res.send(JSON.stringify(poll.candidates))
     res.end()
 })
