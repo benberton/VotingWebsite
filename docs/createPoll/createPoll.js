@@ -9,9 +9,10 @@ function addItem()
 
     if (numOfItems >= 10)
         alert("Max items reached (10)")
+    else if (input === "")
+        alert("Input cannot be empty")
     else
     {
-        console.log(input)
         //if input does not already exist as an item, then it is added
         if (!isItem(input))
         {
@@ -21,7 +22,6 @@ function addItem()
         //clearing input
         document.getElementById("pollInput").value = ""  
     }
-    console.log(numOfItems)
 }
 
 //checks if a item already exists, takes in a string
@@ -70,6 +70,11 @@ function generatePoll()
         //items start at index 1, index 0 holds emty space of some sort
         for (let i = 1; i < container.childNodes.length; ++i)
             list.push(container.childNodes[i].firstChild.nodeValue)
+        
+        alert("Poll started with " + numOfItems + " items")
+        //clearing the container
+        while (container.firstChild)
+            container.firstChild.remove()
         return list
     }
 }
