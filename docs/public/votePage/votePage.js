@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         headers: {
         'Content-Type': 'application/json',
         },
-        body: JSON.stringify(x),
+        body: JSON.stringify({"title": "Request for candidates"}),
     })
     .then((response) => response.json())
     .then((data) => {

@@ -35,7 +35,7 @@ app.post("/api/vote", function(req,res) {
 //returns the candidates
 app.post("/api/getCandidates", function(req,res) {
     console.log(req.body)
-    res.send(JSON.stringify("ya"))
+    res.send(JSON.stringify(poll.candidates))
     res.end()
 })
 
