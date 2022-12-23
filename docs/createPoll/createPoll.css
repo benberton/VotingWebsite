@@ -30,6 +30,7 @@
     /* text-align: center; */
     /* padding: 25px; */
     padding-top: 40px;
+    padding-bottom: 40px;
     width: 100%;
     height: 100%;
 }
@@ -53,20 +54,26 @@
 }
 
 #pollContainer{
-    /* float: left; */
+   
+    /* margin: auto; */
+    position: relative;
+    text-align: center;
+    justify-content: center;
     display: inline-block;
-    height: 65%;
-    width: 50%;
+    height: 60%; 
+    width: 100%;
     overflow-y: scroll;
 }
 
 .item{
     height: 50px;
-    width: auto;
+    width: 50%;
     /* padding: 10px; */
     text-align: center;
     justify-content: center;
     margin: 10px;
+    margin-left: auto;
+    margin-right: auto;
     padding: 15px;
     border: 1px solid #dfdfdf;
     border-radius: 10px;
@@ -89,4 +96,21 @@
 .item:hover .hiddenX{
     display: inline-block;
     font-size: 40px;
+}
+
+#startPollBtn{
+    border-radius: 5px;
+    padding: 20px;
+    width: 200px;
+    font-size: large;
+    border: none;
+    /* background-color: #e2e5f4; */
+    border: 1px solid black;
+    transition: all 200ms;
+    bottom: 0;
+}
+
+#startPollBtn:hover{
+    cursor: pointer;
+    scale: 1.05;
 }
