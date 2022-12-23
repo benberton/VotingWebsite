@@ -65,7 +65,7 @@ function submitVote()
     //hiding vote container and revealing the "New Vote" button
     document.getElementById("voteContainer").classList.add("hidden")
     document.getElementById("voteSubmittedContainer").classList.remove("hidden")
-    console.log(vote)
+  
 
     //sends vote object to server
     fetch("http://localhost:3000/api/vote", {
@@ -73,7 +73,7 @@ function submitVote()
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(vote),
+        body: JSON.stringify(candidateOrder),
     })
 
 }

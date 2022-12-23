@@ -19,7 +19,8 @@ app.get('/test', function(req,res){
 
 //when the vote is submitted (request body has candidate order)
 app.post("/api/vote", function(req,res) {
-    console.log(req.body)
+    let vote = new Vote(req.body)
+    poll.addVote(vote)
     res.end()
 })
 
@@ -28,7 +29,7 @@ app.post("/api/createPoll",function(req,res)
 {
     poll = new VotePoll(req.body)
     console.log(poll)
-    
+    res.end()
 })
 
 app.listen(port,function(error) {
