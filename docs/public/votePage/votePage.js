@@ -1,13 +1,13 @@
 //called when page loads
 document.addEventListener("DOMContentLoaded", ()=>{
-
+    console.log(document.cookie)
     //getting candidates
     fetch('http://localhost:3000/api/getCandidates', {
         method: 'POST', // or 'PUT'
         headers: {
         'Content-Type': 'application/json',
         },
-        body: JSON.stringify({"title": "Request for candidates"}),
+        body: JSON.stringify({"key": '1'}),
     })
     .then((response) => response.json())
     .then((data) => {
@@ -71,7 +71,7 @@ function submitVote()
         headers: {
         'Content-Type': 'application/json',
         },
-        body: JSON.stringify({"title": "Request for candidates"}),
+        body: JSON.stringify({"key": document.cookie}),
     })
     .then((response) => response.json())
     .then((data) => {
@@ -89,13 +89,13 @@ function submitVote()
     document.getElementById("voteSubmittedContainer").classList.remove("hidden")
   
 
-    //sends vote object to backend to add to vote poll object
+    //sends vote to backend to add to vote poll object
     fetch("http://localhost:3000/api/vote", {
         method: 'POST', // or 'PUT'
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(candidateOrder),
+        body: JSON.stringify({"key" : document.cookie, "candidates" : candidateOrder}),
     })
 
 }

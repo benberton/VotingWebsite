@@ -5,7 +5,7 @@ const port = 3000
 const app = express()
 
 let curIDNum = 1
-let poll = null
+let pollMap = new Map()
 
 app.use(express.static('public'))
 //using json format
@@ -21,12 +21,14 @@ app.get('/test', function(req,res){
 //when the poll is created (request body has candidates)
 app.post("/api/createPoll",function(req,res)
 {
-    poll = new VotePoll(req.body)
+    let key = req.body.key
+    let value = new VotePoll(req.body.candidates)
+    pollMap.set(key,value)
+    console.log(pollMap.get(key))
     res.end()
 })
 
 //when a new id is requested
-//when the poll is created (request body has candidates)
 app.post("/api/getID",function(req,res)
 {
     res.send({"ID": curIDNum})
@@ -34,10 +36,10 @@ app.post("/api/getID",function(req,res)
     res.end()
 })
 
-
 //when the vote is submitted (request body has candidate order)
 app.post("/api/vote", function(req,res) {
-    let vote = new Vote(req.body)
+    let vote = new Vote(req.body.candidates)
+    let poll = pollMap.get(req.body.key)
     poll.addVote(vote)
     console.log(poll)
     res.end()
@@ -45,6 +47,8 @@ app.post("/api/vote", function(req,res) {
 
 //returns the candidates
 app.post("/api/getCandidates", function(req,res) {
+    let poll = pollMap.get(req.body.key)
+    console.log(poll)
     res.send(JSON.stringify(poll.candidates))
     res.end()
 })

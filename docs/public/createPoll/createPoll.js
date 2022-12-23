@@ -84,7 +84,7 @@ function generatePoll()
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(list),
+            body: JSON.stringify({"key" : document.cookie, "candidates" : list}),
         })
         
         //setting the poll items in local storage
