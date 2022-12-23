@@ -1,0 +1,119 @@
+.popUp{
+    font-family: Arial, Helvetica, sans-serif;
+    position:fixed;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: 200ms ease-in-out;
+    /* border: 1px solid black; */
+    border-radius: 25px;
+    z-index: 999;
+    /* width: 67.5%; */
+    width: auto;
+    /* height: 90%; */
+    height: auto;
+    max-width: 80%;
+    /* background-color: #e2b0e6; */
+    background-color: transparent;
+}
+
+.popUp.active{
+    transform: translate(-50%,-50%) scale(1);
+}
+
+.popUp-header{
+    /* border: 5px solid black; */
+    font-size: 80px;
+    padding: 20px;
+    background-color: #9a35a3;
+    height: 60;
+    display: flex;
+    /* width: 100%; */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.popUp-header .title {
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.popUp-header .close-button{
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 40;
+    font-weight: bold;
+
+}
+
+.popUp-header .close-button:hover{
+    color: #e2b0e6;
+    scale: 1.5;
+    size: 100;
+}
+
+.close-button{
+    transition: all ease-in-out 200ms;
+}
+
+.popUp-Body {
+    font-size: 30px;
+    /* height: 100%; */
+    padding: 20px;
+    max-height:calc(100% - 110px);
+    overflow-y: scroll;
+    background-color: white;
+}
+
+#pop_up_window{
+    /* adds scroll wheel to entire pop up */
+    /* overflow-y: scroll; */
+}
+
+.popUp-Body-Title {
+    font-weight: bold;
+}
+/* 
+.popUp-item{
+    margin-top: 1%;
+    margin-bottom: 1%;
+} */
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 100;
+    pointer-events: none;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.plan-input{
+    float: left;
+    width: 70%;
+    padding: 3%;
+    height: 1%;
+}
+
+.plan-btn{
+    float: left;
+
+    height: auto;
+    width: 22%;
+    padding: 3%
+}

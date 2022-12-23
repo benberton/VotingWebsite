@@ -1,0 +1,62 @@
+<!-- Loading javascript files -->
+<script src="../javaScript/voteObject.js"></script>
+<script src="../javaScript/votePollObject.js"></script>
+<script src="../javaScript/resultObj.js"></script>
+<script src="../popUp/popup.js"></script>
+<script src="resultsPage.js"></script>
+
+<!-- Loading CSS -->
+<link rel="stylesheet" href="../css/general.css"/>
+<link rel="stylesheet" href="resultsPage.css"/>
+<link rel="stylesheet" href="../popUp/popup.css"/>
+
+
+<html>
+    <a style="color: white;" href="../votePage/vote.html">Vote Page</a>
+    <a style="color: white;" href="../createPoll/createPoll.html">Create Poll</a>
+
+    <body>
+        <div id="window">
+            <div id="windowLabel">Results</div>
+            <div id="allResults">
+                <div id="pluralityResult" class="result activeHover">
+                    <div id="pluralityLabel" class="resultLabel">Plurality Method</div> 
+                    <div id="pluralityContent" class="resultContent">
+                        <!-- <div class="basicContent">
+                            <div>1. Qdoba</div>
+                            <div>2. Pita Pit</div>
+                            <div>3. Carusos</div>
+                            <div>4. McDonalds</div>
+                            <div>5. Chipoltle</div>
+                            <div>6. Chick-Fil-A</div>
+                        </div> -->
+                    </div>
+                </div>
+                <div id="pluralityElimResult" class="result activeHover">
+                    <div id="pluralityElimLabel" class="resultLabel">Plurality W/ Elimination</div> 
+                    <div id="pluralityElimContent" class="resultContent"></div>
+                </div>
+                <div id="pairwiseCompResult" class="result activeHover">
+                    <div id="pairwiseCompLabel" class="resultLabel">Pairwise Comparison</div> 
+                    <div id="pairwiseCompContent" class="resultContent"></div>
+                </div>
+                <div id="bordaCountResult" class="result activeHover">
+                    <div id="bordaCountLabel" class="resultLabel">Borda Count Method</div> 
+                    <div id="bordaCountContent" class="resultContent"></div>
+                </div>
+            </div>
+        </div>
+
+    <!-- pop up html -->
+    <div class="popUp" id="popUpWindow">
+        <div class="popUp-header" id="popUpheader">
+            <div id="popUpTitle" class="title">Example</div>
+            <button id="closePopUpBtn" onclick=close_pop_up() class="close-button">&times;</button>
+        </div>
+        <div id="popUpBody" class="popUp-Body">
+            <!-- use lorem to add fake text -->
+        </div>
+    </div>
+    <div  id="overlay"></div>
+    </body>
+</html>
