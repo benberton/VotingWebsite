@@ -36,6 +36,17 @@ app.post("/api/getID",function(req,res)
     res.end()
 })
 
+// checks if a valid ID exists
+app.post("/api/isValidID",function(req,res)
+{
+    //request containts key
+    if (pollMap.has(req.body.key))
+        res.send({"ID" : true})
+    else
+        res.send({"ID" : false})
+    res.end()
+})
+
 //when the vote is submitted (request body has candidate order)
 app.post("/api/vote", function(req,res) {
     let vote = new Vote(req.body.candidates)

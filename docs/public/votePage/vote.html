@@ -20,7 +20,14 @@
     <a style="color: white;" href="../createPoll/createPoll.html">Create Poll</a>
    
     <button onclick=generateResults()>Results</button>
+
     <body>
+        <!-- Input for ID search -->
+        <div id="sessionIDContainer">
+            <input type="text" placeholder="Enter Session ID" name="" id="inputForID">
+            <button id="searchID" onclick=searchSession()>Search</button>
+        </div>
+
         <!-- <i class="fa-solid fa-grip-dots-vertical"></i> -->
         <!-- 'Vote Subitted' title and button -->
         <div id="voteSubmittedContainer" class="hidden">
@@ -29,7 +36,7 @@
         </div>
        
         <!-- Ballot -->
-        <div id="voteContainer" class="voteContainer">
+        <div id="voteContainer" class="hidden">
             <div id="ballotTitle">Ballot</div>
             <div id="instructions">(Hold and drag items to desired position)</div>
             <div id="listContainer">

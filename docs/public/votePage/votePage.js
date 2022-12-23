@@ -1,12 +1,45 @@
-//called when page loads
-document.addEventListener("DOMContentLoaded", ()=>{
+//holds the session ID
+let sessionID = null
+//called when search for session button is clicked
+function searchSession()
+{
+    let input = document.getElementById("inputForID")
+    let inputVal = input.value
+    // if the key is recognized, then data returns true
+    fetch('http://localhost:3000/api/isValidID', {
+        method: 'POST', // or 'PUT'
+        headers: {
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({"key": inputVal}),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        //data.ID result is true if key is valid
+        if (data.ID)
+        {
+            sessionID = inputVal
+            setPage()
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+    input.value = ''
+}
+
+function setPage()
+{
+    //unhiding ballot
+    document.getElementById("sessionIDContainer").classList.add('hidden')
+    document.getElementById("voteContainer").classList.remove('hidden')
     //getting candidates
     fetch('http://localhost:3000/api/getCandidates', {
         method: 'POST', // or 'PUT'
         headers: {
         'Content-Type': 'application/json',
         },
-        body: JSON.stringify({"key": '1'}),
+        body: JSON.stringify({"key": sessionID}),
     })
     .then((response) => response.json())
     .then((data) => {
@@ -27,7 +60,12 @@ document.addEventListener("DOMContentLoaded", ()=>{
     .catch((error) => {
         console.error('Error:', error);
     });
-})
+}
+
+// //called when page loads
+// document.addEventListener("DOMContentLoaded", ()=>{
+   
+// })
 
 function addCandidatesToScreen(candidates)
 {
@@ -70,7 +108,7 @@ function submitVote()
         headers: {
         'Content-Type': 'application/json',
         },
-        body: JSON.stringify({"key": '1'}),
+        body: JSON.stringify({"key": sessionID}),
     })
     .then((response) => response.json())
     .then((data) => {
@@ -94,7 +132,7 @@ function submitVote()
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({"key" : '1', "candidates" : candidateOrder}),
+        body: JSON.stringify({"key" : sessionID, "candidates" : candidateOrder}),
     })
 
 }
