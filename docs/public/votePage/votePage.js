@@ -8,6 +8,23 @@ let votePoll = new VotePoll(pollItems)
 
 //called when page loads
 document.addEventListener("DOMContentLoaded", ()=>{
+    let x = ['a','b','c','d']
+    //getting candidates
+    fetch('http://localhost:3000/api/getCandidates', {
+        method: 'POST', // or 'PUT'
+        headers: {
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(x),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        console.log('Success:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+
     addCandidatesToScreen()
     //adding numbers to page
     let numberContainer = document.getElementById("rankNumbers")

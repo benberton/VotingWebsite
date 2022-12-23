@@ -78,7 +78,7 @@ function generatePoll()
         while (container.firstChild)
             container.firstChild.remove()
 
-        //sending the array of candidates backend
+        //sending the array of candidates to backend
         fetch("http://localhost:3000/api/createPoll", {
             method: 'POST', // or 'PUT'
             headers: {

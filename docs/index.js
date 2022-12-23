@@ -17,6 +17,14 @@ app.get('/test', function(req,res){
     console.log("test")
 })
 
+//when the poll is created (request body has candidates)
+app.post("/api/createPoll",function(req,res)
+{
+    poll = new VotePoll(req.body)
+    console.log(poll)
+    res.end()
+})
+
 //when the vote is submitted (request body has candidate order)
 app.post("/api/vote", function(req,res) {
     let vote = new Vote(req.body)
@@ -24,11 +32,10 @@ app.post("/api/vote", function(req,res) {
     res.end()
 })
 
-//when the poll is created (request body has candidates)
-app.post("/api/createPoll",function(req,res)
-{
-    poll = new VotePoll(req.body)
-    console.log(poll)
+//returns the candidates
+app.post("/api/getCandidates", function(req,res) {
+    console.log(req.body)
+    res.send(JSON.stringify("ya"))
     res.end()
 })
 
