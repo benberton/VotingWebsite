@@ -66,16 +66,31 @@ function clearCandidates()
 function submitVote()
 {
     let candidateOrder = clearCandidates()
-    let vote = new Vote(candidateOrder)
-    votePoll.addVote(vote)
-    addCandidatesToScreen()
-    slist(document.getElementById("sortlist"));
+    //getting candidates to be added back on screen
+    fetch('http://localhost:3000/api/getCandidates', {
+        method: 'POST', // or 'PUT'
+        headers: {
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({"title": "Request for candidates"}),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        //candidates added back to screen
+        addCandidatesToScreen(data)
+        //creates javascript for the dragable object
+        slist(document.getElementById("sortlist"));
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+
     //hiding vote container and revealing the "New Vote" button
     document.getElementById("voteContainer").classList.add("hidden")
     document.getElementById("voteSubmittedContainer").classList.remove("hidden")
   
 
-    //sends vote object to server
+    //sends vote object to backend to add to vote poll object
     fetch("http://localhost:3000/api/vote", {
         method: 'POST', // or 'PUT'
         headers: {

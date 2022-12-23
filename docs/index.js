@@ -21,7 +21,6 @@ app.get('/test', function(req,res){
 app.post("/api/createPoll",function(req,res)
 {
     poll = new VotePoll(req.body)
-    console.log(poll)
     res.end()
 })
 
@@ -29,12 +28,12 @@ app.post("/api/createPoll",function(req,res)
 app.post("/api/vote", function(req,res) {
     let vote = new Vote(req.body)
     poll.addVote(vote)
+    console.log(poll)
     res.end()
 })
 
 //returns the candidates
 app.post("/api/getCandidates", function(req,res) {
-    console.log(req.body)
     res.send(JSON.stringify(poll.candidates))
     res.end()
 })
