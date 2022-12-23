@@ -1,12 +1,21 @@
+let numOfItems = 0;
+
 
 //adds item to array of pollItems and refreshes the page with updated items
 function addItem()
 {
-    //getting item from input
-    let input = document.getElementById("pollInput").value
-    //clearing input
-    document.getElementById("pollInput").value = ""
-    displayItem(input)
+    if (numOfItems >= 10)
+        alert("Max items reached (10)")
+    else
+    {
+        numOfItems++;
+        //getting item from input
+        let input = document.getElementById("pollInput").value
+        //clearing input
+        document.getElementById("pollInput").value = ""
+        displayItem(input)
+    }
+    console.log(numOfItems)
 }
 
 //displays a string as an element in a container
@@ -19,6 +28,7 @@ function displayItem(input)
     //if item is clicked, then it is removed from the list
     item.addEventListener("click", e=> {
         item.remove()
+        numOfItems--;
     })
     //adding hidden x
     const xLetter = document.createElement("div")
