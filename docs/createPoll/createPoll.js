@@ -75,7 +75,8 @@ function generatePoll()
         //clearing the container
         while (container.firstChild)
             container.firstChild.remove()
-        return list
+        //setting the poll items in local storage
+        localStorage.setItem("pollItems",JSON.stringify(list))
     }
 }
 

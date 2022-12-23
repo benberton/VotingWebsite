@@ -1,6 +1,10 @@
 
 // let votePoll = new VotePoll(["Bernie Sander", "Joe Biden", "Ron Desantes","Donald Trump"])
-let votePoll = new VotePoll(["Qdoba","Pita Pit","Carusos","McDonalds","Chipoltle","Chick-Fil-A"])
+// let votePoll = new VotePoll(["Qdoba","Pita Pit","Carusos","McDonalds","Chipoltle","Chick-Fil-A"])
+let pollItems = JSON.parse(localStorage.getItem("pollItems"))
+
+let votePoll = new VotePoll(pollItems)
+
 
 //called when page loads
 document.addEventListener("DOMContentLoaded", ()=>{
