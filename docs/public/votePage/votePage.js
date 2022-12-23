@@ -1,14 +1,6 @@
-
-// let votePoll = new VotePoll(["Bernie Sander", "Joe Biden", "Ron Desantes","Donald Trump"])
-// let votePoll = new VotePoll(["Qdoba","Pita Pit","Carusos","McDonalds","Chipoltle","Chick-Fil-A"])
-let pollItems = JSON.parse(localStorage.getItem("pollItems"))
-
-let votePoll = new VotePoll(pollItems)
-
-
 //called when page loads
 document.addEventListener("DOMContentLoaded", ()=>{
-    let x = ['a','b','c','d']
+
     //getting candidates
     fetch('http://localhost:3000/api/getCandidates', {
         method: 'POST', // or 'PUT'
@@ -19,33 +11,32 @@ document.addEventListener("DOMContentLoaded", ()=>{
     })
     .then((response) => response.json())
     .then((data) => {
+        //candidates added to page after getting result from backend
         console.log('Success:', data);
+        addCandidatesToScreen(data)
+        //creates javascript for the dragable object
+        slist(document.getElementById("sortlist"));
+        //adding numbers to page
+        let numberContainer = document.getElementById("rankNumbers")
+        for (let i = 0; i < data.length; ++i)
+        {
+            let numberElement = document.createElement("div")
+            numberElement.innerHTML = String((i + 1) + ".")
+            numberElement.classList.add("number")
+            numberContainer.appendChild(numberElement)
+        }
     })
     .catch((error) => {
         console.error('Error:', error);
     });
-
-    addCandidatesToScreen()
-    //adding numbers to page
-    let numberContainer = document.getElementById("rankNumbers")
-    for (let i = 0; i < votePoll.candidates.length; ++i)
-    {
-        let numberElement = document.createElement("div")
-        numberElement.innerHTML = String((i + 1) + ".")
-        numberElement.classList.add("number")
-        numberContainer.appendChild(numberElement)
-    }
-    //creates javascript for the dragable object
-    slist(document.getElementById("sortlist"));
-
 })
 
-function addCandidatesToScreen()
+function addCandidatesToScreen(candidates)
 {
-    for (let i = 0; i < votePoll.candidates.length; ++i)
+    for (let i = 0; i < candidates.length; ++i)
     {
         const candidateEl = document.createElement("li")
-        candidateEl.innerHTML = votePoll.candidates[i]
+        candidateEl.innerHTML = candidates[i]
         let dotIcon = document.createElement("i")
         //adding three dot icon
         dotIcon.classList.add("bi")
