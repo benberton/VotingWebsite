@@ -20,13 +20,25 @@ function searchSession()
         {
             sessionID = inputVal
             setPage()
-        }
+        }else
+            alert("Session : " + inputVal + " does not exist")
     })
     .catch((error) => {
         console.error('Error:', error);
     });
     input.value = ''
 }
+
+//enter key calls searchSession()
+document.addEventListener("DOMContentLoaded", ()=>{
+    var input = document.getElementById("inputForID");
+    input.addEventListener("keypress", function(event) {
+        // If the user presses the "Enter" key on the keyboard
+        if (event.key === "Enter")
+            searchSession()
+    });
+})
+
 
 function setPage()
 {

@@ -1,5 +1,11 @@
 #sessionIDContainer {
   text-align: center;
+  padding-top: 100px;
+}
+
+.inputItem {
+  font-size: 30px;
+  padding: 15px;
 }
 
 #voteContainer {
