@@ -31,6 +31,7 @@ app.post("/api/createPoll",function(req,res)
 //when a new id is requested
 app.post("/api/getID",function(req,res)
 {
+    console.log(curIDNum)
     res.send({"ID": curIDNum})
     curIDNum++
     res.end()

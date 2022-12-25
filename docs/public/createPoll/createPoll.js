@@ -65,6 +65,7 @@ function generatePoll()
         alert("Need to add at least 2 items before starting poll")
     else
     {
+        setSessionID()
         const container = document.getElementById("pollContainer")
         let list = []
         //items start at index 1, index 0 holds emty space of some sort
@@ -92,30 +93,37 @@ function generatePoll()
     }
 }
 
+function setSessionID()
+{
+        //session id pulled from server if one does not exist
+        if(document.cookie == '')
+        {
+            //getting ID and storing it in cookie
+            fetch("http://localhost:3000/api/getID", {
+                method: 'POST', // or 'PUT'
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({"title": "Request for ID"}),
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                document.cookie = data.ID
+                console.log("Create Poll (Session ID: " + data.ID + ")")
+                document.getElementById("sessionTitle").innerHTML = ("(ID: " + data.ID + ")")
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }else
+        {
+            console.log("Cookie:", document.cookie)
+            document.getElementById("sessionTitle").innerHTML = ("(ID: " + document.cookie + ")")
+        }
+}
+
 document.addEventListener("DOMContentLoaded", ()=>{
-    console.log(document.cookie)
-    //session id pulled from server if one does not exist
-    if(document.cookie == '')
-    {
-        //getting ID and storing it in cookie
-        fetch("http://localhost:3000/api/getID", {
-            method: 'POST', // or 'PUT'
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({"title": "Request for ID"}),
-        })
-        .then((response) => response.json())
-        .then((data) => {
-            document.cookie = data.ID
-            // console.log(document.cookie)
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-    }
-        
-    //when 'Enter' is clicked, addItem() called
+     //when 'Enter' is clicked, addItem() called
     var input = document.getElementById("pollInput");
     input.addEventListener("keypress", function(event) {
         // If the user presses the "Enter" key on the keyboard

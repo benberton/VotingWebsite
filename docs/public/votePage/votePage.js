@@ -21,7 +21,7 @@ function searchSession()
             sessionID = inputVal
             setPage()
         }else
-            alert("Session : " + inputVal + " does not exist")
+            alert("Session '" + inputVal + "' does not exist")
     })
     .catch((error) => {
         console.error('Error:', error);
