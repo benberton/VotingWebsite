@@ -94,6 +94,7 @@ function generatePoll()
     }
 }
 
+// if the page has a cookie, the cookie is set as the session ID, otherwise a ID is requested from the backend
 function setSessionID()
 {
         //session id pulled from server if one does not exist
@@ -120,6 +121,10 @@ function setSessionID()
         {
             console.log("Cookie:", document.cookie)
             document.getElementById("sessionTitle").innerHTML = ("(ID: " + document.cookie + ")")
+            
+            // unhiding session information
+            document.getElementById("sessionInfo").classList.remove("hidden")
+            document.getElementById("content").classList.add("hidden")
         }
 }
 
@@ -132,7 +137,7 @@ function goToResults()
 
 document.addEventListener("DOMContentLoaded", ()=>{
     setSessionID()
-    
+
      //when 'Enter' is clicked, addItem() called
     var input = document.getElementById("pollInput");
     input.addEventListener("keypress", function(event) {
