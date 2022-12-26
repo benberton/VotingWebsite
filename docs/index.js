@@ -31,7 +31,6 @@ app.post("/api/createPoll",function(req,res)
 //when a new id is requested
 app.post("/api/getID",function(req,res)
 {
-    console.log(curIDNum)
     res.send({"ID": curIDNum})
     curIDNum++
     res.end()
@@ -53,7 +52,7 @@ app.post("/api/vote", function(req,res) {
     let vote = new Vote(req.body.candidates)
     let poll = pollMap.get(req.body.key)
     poll.addVote(vote)
-    console.log(poll)
+    // console.log(poll)
     res.end()
 })
 

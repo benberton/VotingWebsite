@@ -28,12 +28,28 @@
     font-size: 70px;
 }
 
+#sessionInfo {
+    color: #1c504b;
+    padding-top: 80px;
+    text-align: center;
+    font-size: 60px;
+}
+
 #sessionTitle {
-    padding-top: 15px;
-    padding-left: 35px;
-    position:absolute;
-    float: left;
-    font-size: 40px;
+    padding-bottom: 40px;
+}
+
+#resultsLink {
+    padding: 10px;
+    font-size: 35px;
+    border-radius: 10px;
+    transition: all 200ms;
+    border: 1px solid black;
+}
+
+#resultsLink:hover{
+    cursor: pointer;
+    scale: 1.05;
 }
 
 #content{

@@ -15,9 +15,13 @@
     <body>
         <div id="window">
             <div id="windowLabel">
-                <!-- holds the session ID -->
-                <div id="sessionTitle"></div>
                 <div id="windowTitle">Create Poll</div>
+            </div>
+            <!-- holds the session information -->
+            <div id="sessionInfo" class="hidden">
+                <!-- holds the session ID -->
+                <div id="sessionTitle">Session ID: 12344</div>
+                <button id="resultsLink" onclick=goToResults()>Go To Results</button>
             </div>
             <div id="content">
                 <div id="inputContainer">

@@ -87,9 +87,10 @@ function generatePoll()
             },
             body: JSON.stringify({"key" : document.cookie, "candidates" : list}),
         })
-        
-        //setting the poll items in local storage
-        localStorage.setItem("pollItems",JSON.stringify(list))
+
+        //unhiding session information
+        document.getElementById("sessionInfo").classList.remove("hidden")
+        document.getElementById("content").classList.add("hidden")
     }
 }
 
@@ -121,6 +122,13 @@ function setSessionID()
             document.getElementById("sessionTitle").innerHTML = ("(ID: " + document.cookie + ")")
         }
 }
+
+//uses the session ID to redirect to the results page
+function goToResults()
+{
+    window.location.href = "../resultsPage/results.html?sessionID=" + document.cookie;
+}
+
 
 document.addEventListener("DOMContentLoaded", ()=>{
      //when 'Enter' is clicked, addItem() called
