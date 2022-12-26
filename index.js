@@ -2,6 +2,7 @@ const express = require('express')
 const fs = require('fs')
 
 const port = 3000
+// const port = 8080
 const app = express()
 
 // ID is incremented in base 36
@@ -13,10 +14,11 @@ app.use(express.static('public'))
 app.use(express.json());
 
 
-app.get('/test', function(req,res){
-    res.write("hello")
-    res.end()
-    console.log("test")
+app.listen(port,function(error) {
+    if (error)
+        console.log("Error: " + error)
+    else
+        console.log("Server started on port " + 3000)
 })
 
 //when the poll is created (request body has candidates)
@@ -79,12 +81,6 @@ app.get('/', function(req, res){
     res.redirect('/createPoll/createPoll.html');
 });
 
-app.listen(port,function(error) {
-    if (error)
-        console.log("Error: " + error)
-    else
-        console.log("Server started on port " + 3000)
-})
 
 class Result {
     constructor(ranking,steps)

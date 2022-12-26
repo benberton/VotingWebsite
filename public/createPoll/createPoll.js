@@ -80,7 +80,7 @@ function generatePoll()
 
             console.log("KEY:")
         //sending the array of candidates to backend
-        fetch("http://localhost:3000/api/createPoll", {
+        fetch("/api/createPoll", {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',
@@ -101,7 +101,7 @@ function setSessionID()
         if(document.cookie == '')
         {
             //getting ID and storing it in cookie
-            fetch("http://localhost:3000/api/getID", {
+            fetch("/api/getID", {
                 method: 'POST', // or 'PUT'
                 headers: {
                     'Content-Type': 'application/json',

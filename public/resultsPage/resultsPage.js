@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     const urlParams = new URLSearchParams(queryString);
     let sessionID = urlParams.get('sessionID')
     // if the key is recognized, then the results are returned
-    fetch('http://localhost:3000/api/getResults', {
+    fetch('/api/getResults', {
         method: 'POST', // or 'PUT'
         headers: {
         'Content-Type': 'application/json',

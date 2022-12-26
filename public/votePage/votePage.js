@@ -10,7 +10,7 @@ function searchSession()
     let input = document.getElementById("inputForID")
     let inputVal = input.value
     // if the key is recognized, then data returns true
-    fetch('http://localhost:3000/api/isValidID', {
+    fetch('/api/isValidID', {
         method: 'POST', // or 'PUT'
         headers: {
         'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ function setPage()
     document.getElementById("sessionIDContainer").classList.add('hidden')
     document.getElementById("voteContainer").classList.remove('hidden')
     //getting candidates
-    fetch('http://localhost:3000/api/getCandidates', {
+    fetch('/api/getCandidates', {
         method: 'POST', // or 'PUT'
         headers: {
         'Content-Type': 'application/json',
@@ -114,7 +114,7 @@ function submitVote()
 {
     let candidateOrder = clearCandidates()
     //getting candidates to be added back on screen
-    fetch('http://localhost:3000/api/getCandidates', {
+    fetch('/api/getCandidates', {
         method: 'POST', // or 'PUT'
         headers: {
         'Content-Type': 'application/json',
@@ -138,7 +138,7 @@ function submitVote()
   
 
     //sends vote to backend to add to vote poll object
-    fetch("http://localhost:3000/api/vote", {
+    fetch("/api/vote", {
         method: 'POST', // or 'PUT'
         headers: {
           'Content-Type': 'application/json',
