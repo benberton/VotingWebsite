@@ -71,7 +71,7 @@ app.post("/api/getResults", function(req,res) {
     results.push(poll.pluralityEliminationResult())
     results.push(poll.pairwiseComparisonResult())
     results.push(poll.boardaCountResult())
-    res.send(JSON.stringify({"results" : results}))
+    res.send(JSON.stringify({"totalVotes" : poll.totalVotes, "results" : results}))
     res.end()
 })
 
