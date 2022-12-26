@@ -5,7 +5,7 @@ const port = 3000
 const app = express()
 
 // ID is incremented in base 36
-let curIDVal = "0"
+let curIDVal = "1"
 let pollMap = new Map()
 
 app.use(express.static('public'))
@@ -25,7 +25,7 @@ app.post("/api/createPoll",function(req,res)
     let key = req.body.key
     let value = new VotePoll(req.body.candidates)
     pollMap.set(key,value)
-    console.log(pollMap.get(key))
+    console.log("key",key)
     res.end()
 })
 
@@ -40,6 +40,7 @@ app.post("/api/getID",function(req,res)
 // checks if a valid ID exists
 app.post("/api/isValidID",function(req,res)
 {
+    console.log(pollMap)
     //request containts key
     if (pollMap.has(req.body.key))
         res.send({"ID" : true})

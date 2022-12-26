@@ -65,7 +65,6 @@ function generatePoll()
         alert("Need to add at least 2 items before starting poll")
     else
     {
-        setSessionID()
         const container = document.getElementById("pollContainer")
         let list = []
         //items start at index 1, index 0 holds emty space of some sort
@@ -79,6 +78,7 @@ function generatePoll()
         while (container.firstChild)
             container.firstChild.remove()
 
+            console.log("KEY:")
         //sending the array of candidates to backend
         fetch("http://localhost:3000/api/createPoll", {
             method: 'POST', // or 'PUT'
@@ -110,7 +110,7 @@ function setSessionID()
             .then((response) => response.json())
             .then((data) => {
                 document.cookie = data.ID
-                console.log("Create Poll (Session ID: " + data.ID + ")")
+                console.log("Create Poll (Session ID: " + document.cookie + ")")
                 document.getElementById("sessionTitle").innerHTML = ("(ID: " + data.ID + ")")
             })
             .catch((error) => {
@@ -131,6 +131,7 @@ function goToResults()
 
 
 document.addEventListener("DOMContentLoaded", ()=>{
+    setSessionID()
      //when 'Enter' is clicked, addItem() called
     var input = document.getElementById("pollInput");
     input.addEventListener("keypress", function(event) {
