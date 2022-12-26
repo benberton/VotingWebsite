@@ -63,6 +63,18 @@ app.post("/api/getCandidates", function(req,res) {
     res.end()
 })
 
+//returns array of the results given a poll's key
+app.post("/api/getResults", function(req,res) {
+    let poll = pollMap.get(req.body.key)
+    let results = []
+    results.push(poll.pluralityResult())
+    results.push(poll.pluralityEliminationResult())
+    results.push(poll.pairwiseComparisonResult())
+    results.push(poll.boardaCountResult())
+    res.send(JSON.stringify({"results" : results}))
+    res.end()
+})
+
 app.listen(port,function(error) {
     if (error)
         console.log("Error: " + error)

@@ -5,19 +5,25 @@ document.addEventListener("DOMContentLoaded", ()=>{
     const urlParams = new URLSearchParams(queryString);
     let sessionID = urlParams.get('sessionID')
     console.log(sessionID)
-
-
-    let contentIDs = ["pluralityContent","pluralityElimContent","pairwiseCompContent","bordaCountContent"]
-    let resultNames = ["plurality","pluralityElim","Comparison","Borda"]
-    //naming the header
-    document.getElementById("windowLabel").innerHTML = "Result: " + localStorage.getItem("voteCount") + " Total Votes"
-    //holds the result objects
-    let resultObjects = []
-    for (let i = 0; i < resultNames.length; ++i)
-        resultObjects.push(JSON.parse(localStorage.getItem(resultNames[i])))
-    // let pollResults = [votePoll.pluralityResult(),votePoll.pluralityEliminationResult(),votePoll.pairwiseComparisonResult(),votePoll.boardaCountResult()]
-    for (let i = 0; i < contentIDs.length; ++i)
-        fillContent(contentIDs[i],resultObjects[i])
+    // if the key is recognized, then the results are returned
+    fetch('http://localhost:3000/api/getResults', {
+        method: 'POST', // or 'PUT'
+        headers: {
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({"key": sessionID}),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        let contentIDs = ["pluralityContent","pluralityElimContent","pairwiseCompContent","bordaCountContent"]
+        //naming the header
+        document.getElementById("windowLabel").innerHTML = "Result: " + data.results.length + " Total Votes"
+        for (let i = 0; i < contentIDs.length; ++i)
+            fillContent(contentIDs[i],data.results[i])
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
 })
 
 
