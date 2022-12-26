@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     let sessionID = urlParams.get('sessionID')
-    console.log(sessionID)
     // if the key is recognized, then the results are returned
     fetch('http://localhost:3000/api/getResults', {
         method: 'POST', // or 'PUT'
@@ -18,7 +17,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
         let contentIDs = ["pluralityContent","pluralityElimContent","pairwiseCompContent","bordaCountContent"]
         //naming the header
         document.getElementById("windowLabel").innerHTML = "Result: " + data.totalVotes + " Total Votes"
-        console.log(data.results.length)
         for (let i = 0; i < contentIDs.length; ++i)
             fillContent(contentIDs[i],data.results[i])
     })
