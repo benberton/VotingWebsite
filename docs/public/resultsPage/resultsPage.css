@@ -15,13 +15,39 @@
 }
 
 #windowLabel{
-    font-size: 70;
+    font-size: auto;
     text-align: center;
-    height: auto;
+    vertical-align: middle;
+    height: 80px;
     width: auto;
     padding: 5px;
     color: white;
     background-color: #750f7e;
+}
+
+#title {
+    font-size: 70px;
+}
+
+#toPollPageBtn {
+    /* float: right; */
+    position: absolute;
+    top: 34px;
+    right: 180px;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: large;
+    border: none;
+    color: white;
+    background-color: #a65bad;
+    transition: all 200ms;
+    border: 1px solid white;
+}
+
+#toPollPageBtn:hover {
+    cursor: pointer;
+    scale: 1.05;
 }
 
 #pollInfo {

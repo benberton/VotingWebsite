@@ -12,12 +12,15 @@
 
 
 <html>
-    <a style="color: white;" href="../votePage/vote.html">Vote Page</a>
-    <a style="color: white;" href="../createPoll/createPoll.html">Create Poll</a>
-
+    <!-- <a style="color: white;" href="../votePage/vote.html">Vote Page</a>
+    <a style="color: white;" href="../createPoll/createPoll.html">Create Poll</a> -->
+    <!-- Contains button that goes to poll page -->
     <body>
         <div id="window">
-            <div id="windowLabel">Results</div>
+            <div id="windowLabel">
+                <div id="title">Results</div> 
+                <button id="toPollPageBtn" onclick=goToCreatePoll()>Create Poll Page</button>
+            </div> 
             <div id="pollInfo" ></div>
             <div id="allResults">
                 <div id="pluralityResult" class="result activeHover">

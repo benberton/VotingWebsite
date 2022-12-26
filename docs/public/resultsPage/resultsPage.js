@@ -25,12 +25,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
     });
 })
 
-
-function resultClicked(resultContainerID)
-{
-    console.log(resultContainerID)
-}
-
 function fillContent(id,resultObj)
 {
     let contentEl = document.getElementById(id)
@@ -53,4 +47,9 @@ function fillContent(id,resultObj)
     }
     contentEl.appendChild(listContainer)
 
+}
+
+function goToCreatePoll()
+{
+    window.location.href = "../createPoll/createPoll.html"
 }
