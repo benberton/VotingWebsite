@@ -20,9 +20,11 @@
             <!-- holds the session information -->
             <div id="sessionInfo" class="hidden">
                 <!-- holds the session ID -->
-                <div id="sessionTitle">Session ID: 12344</div>
-                <button id="resultsLink" onclick=goToResults()>Go To Results</button>
+                <div id="sessionTitle">ID: 12344</div>
+                <button id="resultsBtn" onclick=goToResults()>Go To Results</button>
+                <div style="padding-top: 40px;"><button id="newPollBtn" onclick=startNewPoll()>Start New Poll</button></div>
             </div>
+            <!-- holds the content for creating a poll -->
             <div id="content">
                 <div id="inputContainer">
                     <input type="text" id="pollInput" placeholder="Enter Item">

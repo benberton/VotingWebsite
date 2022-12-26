@@ -112,15 +112,14 @@ function setSessionID()
             .then((data) => {
                 document.cookie = data.ID
                 console.log("Create Poll (Session ID: " + document.cookie + ")")
-                document.getElementById("sessionTitle").innerHTML = ("(ID: " + data.ID + ")")
+                document.getElementById("sessionTitle").innerHTML = ("ID: " + data.ID + "")
             })
             .catch((error) => {
                 console.error('Error:', error);
             });
         }else
         {
-            console.log("Cookie:", document.cookie)
-            document.getElementById("sessionTitle").innerHTML = ("(ID: " + document.cookie + ")")
+            document.getElementById("sessionTitle").innerHTML = ("ID: " + document.cookie + "")
             
             // unhiding session information
             document.getElementById("sessionInfo").classList.remove("hidden")
@@ -128,10 +127,18 @@ function setSessionID()
         }
 }
 
-//uses the session ID to redirect to the results page
+// uses the session ID to redirect to the results page
 function goToResults()
 {
     window.location.href = "../resultsPage/results.html?sessionID=" + document.cookie;
+}
+
+// unhides the div that allows for new polls to be created
+function startNewPoll()
+{
+    // unhiding session information
+    document.getElementById("content").classList.remove("hidden")
+    document.getElementById("sessionInfo").classList.add("hidden")
 }
 
 

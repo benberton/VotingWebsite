@@ -32,22 +32,35 @@
     color: #1c504b;
     padding-top: 80px;
     text-align: center;
-    font-size: 60px;
+    font-size: 120px;
 }
 
 #sessionTitle {
     padding-bottom: 40px;
 }
 
-#resultsLink {
+#resultsBtn {
     padding: 10px;
-    font-size: 35px;
+    font-size: 32px;
     border-radius: 10px;
     transition: all 200ms;
     border: 1px solid black;
 }
 
-#resultsLink:hover{
+#resultsBtn:hover{
+    cursor: pointer;
+    scale: 1.05;
+}
+
+#newPollBtn {
+    padding: 10px;
+    font-size: 32px;
+    border-radius: 10px;
+    transition: all 200ms;
+    border: 1px solid black;
+}
+
+#newPollBtn:hover {
     cursor: pointer;
     scale: 1.05;
 }
