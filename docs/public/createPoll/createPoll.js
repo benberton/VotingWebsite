@@ -132,6 +132,7 @@ function goToResults()
 
 document.addEventListener("DOMContentLoaded", ()=>{
     setSessionID()
+    
      //when 'Enter' is clicked, addItem() called
     var input = document.getElementById("pollInput");
     input.addEventListener("keypress", function(event) {
