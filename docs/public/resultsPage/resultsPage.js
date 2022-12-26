@@ -1,5 +1,12 @@
 //fills the results page with the content held in the local storage for each result type
 document.addEventListener("DOMContentLoaded", ()=>{
+    //gets the url items
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    let sessionID = urlParams.get('sessionID')
+    console.log(sessionID)
+
+
     let contentIDs = ["pluralityContent","pluralityElimContent","pairwiseCompContent","bordaCountContent"]
     let resultNames = ["plurality","pluralityElim","Comparison","Borda"]
     //naming the header
@@ -11,7 +18,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
     // let pollResults = [votePoll.pluralityResult(),votePoll.pluralityEliminationResult(),votePoll.pairwiseComparisonResult(),votePoll.boardaCountResult()]
     for (let i = 0; i < contentIDs.length; ++i)
         fillContent(contentIDs[i],resultObjects[i])
-    
 })
 
 
