@@ -1,5 +1,7 @@
 // const contentDisposition = require("content-disposition");
-
+document.addEventListener("DOMContentLoaded", ()=>{
+    slist(document.getElementById("sortlist"));
+})
 //holds the session ID
 let sessionID = null
 //called when search for session button is clicked

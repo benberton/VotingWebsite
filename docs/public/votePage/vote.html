@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../css/general.css"/>
     <link rel="stylesheet" href="votePage.css"/>
 
+
     <!-- (Sort List) LOAD CSS + JS -->
     <script src="../sort-list/sort-list.js"></script>
     <link rel="stylesheet" href="../sort-list/sort-list.css"/>
@@ -23,7 +24,8 @@
         <!-- Input for ID search -->
         <div id="sessionIDContainer">
             <input type="text" placeholder="Enter Session ID" id="inputForID" class="inputItem">
-            <button id="searchID" onclick=searchSession() class="inputItem">Search</button>
+            <button id="searchID" onclick=searchSession() class="inputItem searchBtn">Search</button>
+            
         </div>
 
         <!-- 'Vote Subitted' title and button -->
@@ -34,6 +36,8 @@
        
         <!-- Ballot -->
         <div id="voteContainer" class="hidden">
+            <!-- <div id="voteContainer" class="hidden"> -->
+            
             <div id="ballotTitle">Ballot</div>
             <div id="instructions">(Hold and drag items to desired position)</div>
             <div id="listContainer">
@@ -43,11 +47,11 @@
                     <div>3</div> -->
                 </div>
                 <ul id="sortlist">
-                <!-- <li>First</li>
-                <li>Second</li>
-                <li>Third</li>
-                <li>Forth</li>
-                <li>Fifth</li> -->
+                    <!-- <li>First</li>
+                    <li>Second</li>
+                    <li>Third</li>
+                    <li>Forth</li>
+                    <li>Fifth</li> -->
                 </ul>
             </div>
          
