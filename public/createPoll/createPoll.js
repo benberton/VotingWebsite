@@ -113,6 +113,8 @@ function setSessionID()
                 document.cookie = data.ID
                 console.log("Create Poll (Session ID: " + document.cookie + ")")
                 document.getElementById("sessionTitle").innerHTML = ("ID: " + data.ID + "")
+                //setting onclick function for generate poll button
+                document.getElementById("startPollBtn").onclick = generatePoll
             })
             .catch((error) => {
                 console.error('Error:', error);
@@ -124,6 +126,9 @@ function setSessionID()
             // unhiding session information
             document.getElementById("sessionInfo").classList.remove("hidden")
             document.getElementById("content").classList.add("hidden")
+
+            //setting onclick function for generate poll button
+            document.getElementById("startPollBtn").onclick = generatePoll
         }
 }
 
