@@ -4,7 +4,8 @@ const fs = require('fs')
 const port = 3000
 const app = express()
 
-let curIDNum = 1
+// ID is incremented in base 36
+let curIDVal = "0"
 let pollMap = new Map()
 
 app.use(express.static('public'))
@@ -31,8 +32,8 @@ app.post("/api/createPoll",function(req,res)
 //when a new id is requested
 app.post("/api/getID",function(req,res)
 {
-    res.send({"ID": curIDNum})
-    curIDNum++
+    res.send({"ID": curIDVal})
+    curIDVal = nextBase36(curIDVal)
     res.end()
 })
 
@@ -52,7 +53,6 @@ app.post("/api/vote", function(req,res) {
     let vote = new Vote(req.body.candidates)
     let poll = pollMap.get(req.body.key)
     poll.addVote(vote)
-    // console.log(poll)
     res.end()
 })
 
@@ -63,7 +63,7 @@ app.post("/api/getCandidates", function(req,res) {
     res.end()
 })
 
-//returns array of the results given a poll's key
+//returns array of the results when given a poll's key
 app.post("/api/getResults", function(req,res) {
     let poll = pollMap.get(req.body.key)
     let results = []
@@ -81,8 +81,6 @@ app.listen(port,function(error) {
     else
         console.log("Server started on port " + 3000)
 })
-
-
 
 class Result {
     constructor(ranking,steps)
@@ -384,4 +382,47 @@ function sortFunction(a, b)
     else {
         return (a[0] > b[0]) ? -1 : 1;
     }
+}
+
+/**
+ * Returns the next base-36 value of a base-36 string, using uppercase characters.
+ *
+ * @param {string} base36 - The base-36 string.
+ * @return {string} The next base-36 value.
+ */
+function nextBase36(base36) {
+    // Create an array of the base-36 digits, in reverse order
+    let digits = [...base36].reverse();
+  
+    // Initialize a carry variable to 0
+    let carry = 1;
+  
+    // Iterate over the digits
+    for (let i = 0; i < digits.length; i++) {
+      // Convert the digit to a number
+      let num = parseInt(digits[i], 36);
+  
+      // Add the carry
+      num += carry;
+  
+      // If the resulting number is greater than or equal to 36, we need to carry the 1 to the next digit
+      if (num >= 36) {
+        num -= 36;
+        carry = 1;
+      } else {
+        // If the number is less than 36, we don't need to carry any more
+        carry = 0;
+      }
+  
+      // Convert the number back to a base-36 digit
+      digits[i] = num.toString(36).toUpperCase();
+    }
+  
+    // If we still have a carry after reaching the most significant digit, we need to add a new digit
+    if (carry === 1) {
+      digits.push('1');
+    }
+  
+    // Reverse the array of digits and join them into a string
+    return digits.reverse().join('');
 }

@@ -1,3 +1,5 @@
+const contentDisposition = require("content-disposition");
+
 //holds the session ID
 let sessionID = null
 //called when search for session button is clicked
@@ -74,11 +76,6 @@ function setPage()
     });
 }
 
-// //called when page loads
-// document.addEventListener("DOMContentLoaded", ()=>{
-   
-// })
-
 function addCandidatesToScreen(candidates)
 {
     for (let i = 0; i < candidates.length; ++i)
@@ -154,31 +151,3 @@ function revealBallot()
     document.getElementById("voteSubmittedContainer").classList.add("hidden")
     document.getElementById("voteContainer").classList.remove("hidden")
 }
-
-
-function generateResults()
-{
-    localStorage.setItem("plurality",JSON.stringify(votePoll.pluralityResult()))
-    localStorage.setItem("pluralityElim",JSON.stringify(votePoll.pluralityEliminationResult()))
-    localStorage.setItem("Borda",JSON.stringify(votePoll.boardaCountResult()))
-    localStorage.setItem("Comparison",JSON.stringify(votePoll.pairwiseComparisonResult()))
-    localStorage.setItem("voteCount",votePoll.totalVotes)
-    
-    console.log("Plurality",votePoll.pluralityResult())
-    console.log("Comparison",votePoll.pairwiseComparisonResult())
-    console.log("Plurality W Elim",votePoll.pluralityEliminationResult())
-    console.log("Borda Count",votePoll.boardaCountResult())
-
-}
-
-// localStorage.setItem("pluralityRanking",votePoll.pluralityResult().ranking)
-// localStorage.setItem("pluralitySteps",votePoll.pluralityResult().steps)
-
-// localStorage.setItem("pluralityElimRanking",votePoll.pluralityEliminationResult().ranking)
-// localStorage.setItem("pluralityElimSteps",votePoll.pluralityEliminationResult().steps)
-
-// localStorage.setItem("BordaRanking",votePoll.boardaCountResult().ranking)
-// localStorage.setItem("BordaSteps",votePoll.boardaCountResult().steps)
-
-// localStorage.setItem("ComparisonRanking",votePoll.pairwiseComparisonResult().ranking)
-// localStorage.setItem("ComparisonSteps",votePoll.pairwiseComparisonResult().steps)
