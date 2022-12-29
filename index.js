@@ -18,7 +18,7 @@ app.listen(port,function(error) {
     if (error)
         console.log("Error: " + error)
     else
-        console.log("Server started on port " + 3000)
+        console.log("Server started on port " + port)
 })
 
 //when the poll is created (request body has candidates)
