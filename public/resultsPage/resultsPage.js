@@ -51,5 +51,5 @@ function fillContent(id,resultObj)
 
 function goToCreatePoll()
 {
-    window.location.href = "../createPoll/createPoll.html"
+    window.location.href = "../createPoll.html"
 }

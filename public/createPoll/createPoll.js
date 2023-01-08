@@ -135,7 +135,7 @@ function setSessionID()
 // uses the session ID to redirect to the results page
 function goToResults()
 {
-    window.location.href = "../resultsPage/results.html?sessionID=" + document.cookie;
+    window.location.href = "../results.html?sessionID=" + document.cookie;
 }
 
 // unhides the div that allows for new polls to be created

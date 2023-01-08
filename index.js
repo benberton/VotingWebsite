@@ -78,7 +78,7 @@ app.post("/api/getResults", function(req,res) {
 
 // the default age is set to the create poll page when site is visited
 app.get('/', function(req, res){
-    res.redirect('/createPoll/createPoll.html');
+    res.redirect('/createPoll.html');
 });
 
 
